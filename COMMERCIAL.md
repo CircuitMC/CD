@@ -16,6 +16,6 @@ requirement. You typically need one to:
 
 <!-- TODO: add a public contact (email / website / issue tracker) -->
 - Copyright holder: Tab Nahida
-- Contact: `<to be filled in>`
+- Contact: `tab@tabye.top`
 
 Commercial terms (scope, duration, fees) are set in a separate written agreement.
