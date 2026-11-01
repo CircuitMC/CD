@@ -204,9 +204,8 @@ def _cube_dir(ctx, face):
 
 def _panorama(face):
     def fn(ctx):
-        phi, elev = _cube_dir(ctx, face)
-        col = sky_scene(phi, elev)
-        return Tex(ctx, np.clip(col, 0, 1).astype(np.float32), wrap=False, grain=0)
+        from .panorama import render_face
+        return render_face(ctx, face)
     return fn
 
 

@@ -109,10 +109,7 @@ def chest(ctx, style="normal", half=None):
         for name, r in faces.items():
             m = sh.rect(r)
             inner = (pname == "base" and name == "bottom") or (pname == "lid" and name == "top")
-            c = body_c
-            if inner:
-                c = body_c * 0.62
-            sh.put(m, c, height=body_h, **attrs)
+            sh.put(m, body_c, height=body_h, **attrs)
             if is_metal_body:
                 st = COPPER_STAGES[style]
                 if st["patina"] < 0.5:
@@ -125,8 +122,10 @@ def chest(ctx, style="normal", half=None):
             fr = frame(ctx, r, 1, edges) & m
             sh.put(fr, fcol, height=0.62, smooth=attrs.get("smooth", 0.2))
             if inner:
-                # Inside: shadow ring instead of a raised frame.
-                sh.shade(frame(ctx, r, 1, edges) & m, 0.7)
+                if pname == "base":
+                    _interior(sh, r, edges, style, body_c)
+                else:
+                    _lid_underside(sh, r, edges, body_c)
                 continue
             # Side faces: symmetric inner bevel (orientation independent).
             if name in ("right", "front", "left", "back"):
@@ -201,6 +200,85 @@ def chest(ctx, style="normal", half=None):
         hm = sh.rect(lid[hidden]) | sh.rect(base[hidden])
         sh.shade(hm, 0.8)
     return sh.tex(grain=0.05)
+
+
+
+def _interior(sh, r, edges, style, body_c):
+    """Base top face seen with the lid open: hollow box interior.
+
+    Ring 1: lit top rim of the wall thickness. Then the inner wall faces (far
+    wall lit, near wall shadowed, side walls in between) and a dark floor.
+    The far (hinge) side is taken as the bottom row of the region, the near
+    (latch) side as the top row. Seam edges of double halves get no wall, so the
+    interior runs straight across the joint.
+    """
+    ctx = sh.ctx
+    x0, y0, x1, y1 = r
+    m = sh.rect(r)
+    t = 1 if "t" in edges else 0
+    b = 1 if "b" in edges else 0
+    lft = 1 if "l" in edges else 0
+    rgt = 1 if "r" in edges else 0
+    # wall depth seen from above: far wall shows more of its face than the near one
+    far, near, side = 2, 1, 1
+    fx0, fy0 = x0 + lft * (1 + side), y0 + t * (1 + near)
+    fx1, fy1 = x1 - rgt * (1 + side), y1 - b * (1 + far)
+    floor = (ctx.rect(fx0, fy0, fx1, fy1) > 0.5) & m
+    rim = frame(ctx, r, 1, edges) & m
+    walls = m & ~rim & ~floor
+    base_col = sh.color.copy()
+    # inner walls: classify by the nearest edge
+    near_w = walls & (ctx.y < fy0)
+    far_w = walls & (ctx.y >= fy1)
+    left_w = walls & ~near_w & ~far_w & (ctx.x < fx0)
+    right_w = walls & ~near_w & ~far_w & (ctx.x >= fx1)
+    for mask, f in ((far_w, 0.78), (left_w, 0.62), (right_w, 0.52), (near_w, 0.38)):
+        sh.color[mask] = base_col[mask] * f
+        sh.height[mask] = 0.3
+    # floor: dark, a little darker against the near wall (it casts the shadow)
+    fl = np.where(floor, 0.34, 0.0)
+    if t:
+        fl = np.where(floor & (ctx.y < fy0 + 1), 0.26, fl)
+    if lft:
+        fl = np.where(floor & (ctx.x < fx0 + 1), np.minimum(fl, 0.3), fl)
+    sh.color[floor] = base_col[floor] * fl[floor][..., None]
+    sh.height[floor] = 0.05
+    if style == "ender":
+        sh.emissive[floor] = 0.0
+    # rim: top of the wall boards, lighter than the outside
+    sh.color[rim] = np.clip(body_c[rim] * 1.12, 0, 1)
+    sh.height[rim] = 0.6
+    sh.shade(rim & np.roll(walls, -ctx.s, 0), 0.92)   # rim edge over the far wall
+    # corner posts where two rims meet stay a touch darker
+    if style not in ("", "_exposed"):
+        sh.unmetal(floor | walls)
+
+
+def _lid_underside(sh, r, edges, body_c):
+    """Lid underside seen with the lid open: rim + darker recessed panel."""
+    ctx = sh.ctx
+    x0, y0, x1, y1 = r
+    m = sh.rect(r)
+    base_col = sh.color.copy()
+    rim = frame(ctx, r, 1, edges) & m
+    sh.color[rim] = np.clip(body_c[rim] * 1.05, 0, 1)
+    sh.height[rim] = 0.6
+    px0 = x0 + (1 if "l" in edges else 0)
+    py0 = y0 + (1 if "t" in edges else 0)
+    px1 = x1 - (1 if "r" in edges else 0)
+    py1 = y1 - (1 if "b" in edges else 0)
+    panel = (ctx.rect(px0, py0, px1, py1) > 0.5) & m
+    sh.color[panel] = body_c[panel] * 0.6
+    sh.height[panel] = 0.3
+    # recessed: inner edge below the rim on the top/left is in shadow, bottom/right catches light
+    if "t" in edges:
+        sh.shade(panel & (ctx.y < py0 + 1), 0.78)
+    if "l" in edges:
+        sh.shade(panel & (ctx.x < px0 + 1) & ~(ctx.y < py0 + 1), 0.82)
+    if "b" in edges:
+        sh.shade(panel & (ctx.y >= py1 - 1), 1.15)
+    if "r" in edges:
+        sh.shade(panel & (ctx.x >= px1 - 1) & ~(ctx.y >= py1 - 1), 1.1)
 
 
 def _bind(style, half):

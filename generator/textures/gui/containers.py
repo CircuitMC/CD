@@ -304,6 +304,7 @@ def creative(ctx, kind):
         c.rect(175, 114, 12, 12, C("6b1712"), 0.25)
     else:
         grid(c, 9, 18, 9, 5)
+        grid(c, 9, 112, 9, 1)  # hotbar row (drawn from the background by the game)
         well(c, 174, 17, 14, 112, C("2a2b30"))
         if kind == "search":
             well(c, 80, 4, 90, 12, C("0c0d0f"))

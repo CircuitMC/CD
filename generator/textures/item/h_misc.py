@@ -325,40 +325,77 @@ def spyglass_model(ctx):
 
 
 # ------------------------------------------------------------------ arrows
-def arrow_layers(ctx, head_p=FLINT, glow=0.0, head=True, base=True):
-    d = Diag(1.4, 14.6)
-    u0, u1 = 0.4, 18.0
-    out = []
-    if base:
-        out.append(rod(ctx, [d.p(u0 + 1.0, 0), d.p(u1 - 2.0, 0)], 1.5, WOOD))
-        fl = U(d.poly(ctx, [(u0, -2.4), (u0 + 1.4, -2.4), (u0 + 4.0, -0.5), (u0 + 2.4, -0.5)]),
-               d.poly(ctx, [(u0, 2.4), (u0 + 1.4, 2.4), (u0 + 4.0, 0.5), (u0 + 2.4, 0.5)]))
-        out.append(spr(ctx, fl, FEATHER, bevel=1))
-    if head:
-        out.append(spr(ctx, d.poly(ctx, [(u1 - 3.2, -2.0), (u1, 0), (u1 - 3.2, 2.0), (u1 - 2.4, 0)]), head_p, bevel=1,
-                       emissive=glow))
-    return out
+# Same geometry as item_1's arrow (a_tools.arrow): frame Diag(2.0, 14.0), nock u0=0.6, tip u1=16.9.
+ARROW_D = (2.0, 14.0)
+ARROW_U0, ARROW_U1 = 0.6, 16.9
+ARROWHEAD = pal("26262a", "44444a", "66666e", "8e8e98")
+TINT_HEAD = pal("bfbfbf", "cfcfcf", "dfdfdf", "efefef", "f4f4f4")  # tinted by the potion color
+SPECTRAL_HEAD = pal("8a5a06", "e0a820", "f8d850", "fff09a", "fffbe0")
+SPECTRAL_FEATHER = pal("a8902a", "e0c850", "f4e486", "fff6c8")
 
 
-register("item/spectral_arrow", lambda ctx: compose(ctx, *arrow_layers(ctx, GOLD_P, 0.6)))
-register("item/tipped_arrow_base", lambda ctx: compose(ctx, *arrow_layers(ctx, head=False)))
-register("item/tipped_arrow_head", lambda ctx: compose(ctx, *arrow_layers(
-    ctx, pal("5a5a5a", "8a8a8a", "b4b4b4", "dcdcdc", "f4f4f4"), base=False)))
+def _arrow_parts(ctx):
+    d = Diag(*ARROW_D)
+    u0, u1 = ARROW_U0, ARROW_U1
+    head_m = d.poly(ctx, [(u1 - 3.4, -2.1), (u1, 0), (u1 - 3.4, 2.1), (u1 - 2.6, 0)])
+    fl_m = d.poly(ctx, [(u0, -2.6), (u0 + 2.6, -2.6), (u0 + 5.0, 0), (u0 + 2.6, 2.6), (u0, 2.6), (u0 + 2.4, 0)])
+    return d, u0, u1, head_m, fl_m
+
+
+def _head_layer(ctx, hm, p, emissive=0.0):
+    t = spr(ctx, hm, p, bevel=1, outline=False, emissive=emissive)
+    paint(t, ctx.edge(hm, 1, "br") > 0, p[0])
+    return t
+
+
+def arrow_variant(ctx, kind):
+    """kind: spectral | base (tipped arrow without its head) | head (tinted overlay only)."""
+    d, u0, u1, hm, flm = _arrow_parts(ctx)
+    band_u0 = u1 - 5.4  # tinted band of shaft right behind the head
+    if kind == "head":
+        band = rod(ctx, [d.p(band_u0, 0), d.p(u1 - 2.4, 0)], 1.5, TINT_HEAD[1:])
+        return compose(ctx, band, _head_layer(ctx, hm, TINT_HEAD))
+    if kind == "base":
+        shaft = rod(ctx, [d.p(u0 + 0.6, 0), d.p(band_u0 - 0.2, 0)], 1.5, WOOD)
+        fl = spr(ctx, flm, FEATHER, bevel=1, outline=False)
+        return compose(ctx, fl, shaft)
+    # spectral: glowing gold head, golden fletching, a glowing band behind the head
+    shaft = rod(ctx, [d.p(u0 + 0.6, 0), d.p(u1 - 2.0, 0)], 1.5, WOOD)
+    glow = rod(ctx, [d.p(band_u0, 0), d.p(u1 - 2.4, 0)], 1.5, SPECTRAL_HEAD[1:], emissive=0.5)
+    fl = spr(ctx, flm, SPECTRAL_FEATHER, bevel=1, outline=False, emissive=0.3)
+    return compose(ctx, fl, shaft, glow, _head_layer(ctx, hm, SPECTRAL_HEAD, 0.8))
+
+
+register("item/spectral_arrow", lambda ctx: arrow_variant(ctx, "spectral"))
+register("item/tipped_arrow_base", lambda ctx: arrow_variant(ctx, "base"))
+register("item/tipped_arrow_head", lambda ctx: arrow_variant(ctx, "head"))
 
 
 # ------------------------------------------------------------------ redstone etc
+PLATE = pal("5a5a5e", "8a8a8e", "a6a6aa", "bcbcc0", "d2d2d6")
+
+
 @texture("item/repeater")
 def repeater(ctx):
-    slab = poly(ctx, [(1.0, 9.0), (8.0, 6.0), (15.0, 9.0), (15.0, 11.0), (8.0, 14.4), (1.0, 11.0)])
-    t = spr(ctx, slab, STONE, bevel=1, porosity=0.2)
-    ring = ctx.edge(slab, 1) > 0
-    top = poly(ctx, [(1.0, 9.0), (8.0, 6.0), (15.0, 9.0), (8.0, 12.4)])
-    paint(t, (top > 0.5) & ~ring, STONE[3])
-    paint(t, (line(ctx, [(3.0, 9.6), (13.0, 9.0)], 0.7) > 0.5) & ~ring, REDSTONE[2])
+    """Top-down icon: stone plate, redstone line along the centre, two torches on it."""
+    plate = box(ctx, 2.0, 2.0, 14.0, 14.0)
+    t = spr(ctx, plate, PLATE, bevel=1.5, porosity=0.2)
+    ring = ctx.edge(plate, 1) > 0
+    inner = (plate > 0.5) & ~ring
+    paint(t, inner & (ctx.edge(plate, 2, "tl") > 0), PLATE[4])
+    paint(t, inner & (ctx.edge(plate, 2, "br") > 0), PLATE[1])
+    n = ctx.texel_noise("rep")
+    paint(t, inner & ~(ctx.edge(plate, 2) > 0) & (n < 0.12), PLATE[2])
+    paint(t, (box(ctx, 7.0, 3.6, 9.0, 12.6) > 0.5) & inner, PLATE[1])          # groove
+    paint(t, (box(ctx, 7.4, 4.0, 8.6, 12.2) > 0.5) & inner, REDSTONE[2], emissive=0.4)  # dust line
+    paint(t, cells(ctx, [(8, 12)]), REDSTONE[3], emissive=0.6)
     layers = [t]
-    for x, y in ((5.0, 9.4), (10.6, 8.8)):
-        stick = spr(ctx, box(ctx, x - 0.5, y - 4.4, x + 0.5, y), WOOD[1:4], outline=False, bevel=1)
-        tip = spr(ctx, box(ctx, x - 1.0, y - 5.6, x + 1.0, y - 3.6), REDSTONE, bevel=1, emissive=0.8)
+    for y in (6.0, 12.4):
+        stick = rod(ctx, [(8.0, y), (8.0, y - 1.6)], 1.4, WOOD)
+        tm = box(ctx, 7.0, y - 3.6, 9.0, y - 1.6)
+        tip = spr(ctx, tm, REDSTONE[1:], bevel=1, outline=False, emissive=0.9)
+        paint(tip, ctx.edge(tm, 1, "br") > 0, REDSTONE[1])
+        paint(tip, cells(ctx, [(7, int(y - 3.6))]), REDSTONE[4])
         layers += [stick, tip]
     return compose(ctx, *layers)
 

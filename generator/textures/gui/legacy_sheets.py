@@ -205,10 +205,11 @@ register("gui/achievement/achievement_background", sheet(_achievements))
 
 
 def _creative_tabs(c, ctx):
+    """1.19.3-1.20.1 layout (served by the base folder): 26x32 cells at u = column * 26."""
     for col in range(7):
         n = col + 1
         for y, st in ((0, "top_unselected"), (32, "top_selected"), (64, "bottom_unselected"), (96, "bottom_selected")):
-            put(c, ctx, SP + f"container/creative_inventory/tab_{st}_{n}", 28 * col, y)
+            put(c, ctx, SP + f"container/creative_inventory/tab_{st}_{n}", 26 * col, y)
 
 
 register("gui/container/creative_inventory/tabs", sheet(_creative_tabs))

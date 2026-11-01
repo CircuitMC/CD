@@ -60,19 +60,22 @@ def power_digits(ctx, level):
 
 
 def dust_dot(ctx):
+    """Round blob centered on the block; same width/brightness as the line core."""
     d = np.hypot(ctx.x - 8, ctx.y - 8)
-    m = d < 3.2
-    v = 0.82 + ctx.texel_noise("dot") * 0.18
+    m = d < 3.0
+    v = np.where(d < 2.0, 0.95, 0.72) - ctx.texel_noise("dot") * 0.08
     return Tex(ctx, np.repeat(v[..., None], 3, -1), alpha=m.astype(np.float32),
-               height=np.where(m, 0.7, 0.5), smooth=0.4, wrap=False)
+               height=np.where(m, 0.7, 0.5), smooth=0.4, wrap=False, grain=0)
 
 
 def dust_line(ctx):
-    w = 2.0 + (ctx.noise(4, 1, salt="lw", stretch=(1, 2)) - 0.5) * 0.6
-    m = np.abs(ctx.x - 8) < w
-    v = 0.8 + ctx.texel_noise("line") * 0.2
+    """Straight line exactly centered on the block (4 texels: bright 2-texel core,
+    darker edges), uniform along its length so pieces join without steps."""
+    dx = np.abs(ctx.x - 8)
+    m = dx < 2.0
+    v = np.where(dx < 1.0, 0.95, 0.72) - ctx.texel_noise("line") * 0.08
     return Tex(ctx, np.repeat(v[..., None], 3, -1), alpha=m.astype(np.float32),
-               height=np.where(m, 0.7, 0.5), smooth=0.4)
+               height=np.where(m, 0.7, 0.5), smooth=0.4, grain=0)
 
 
 register(f"/{NS}/textures/block/redstone/dot", dust_dot, size=(16, 16), pack=PACK)
@@ -127,5 +130,6 @@ parts = [{
 }]
 parts += [{"when": {d: SIDE}, "apply": apply("side", y)} for d, y in ROT.items()]
 parts += [{"when": {d: "up"}, "apply": apply("up", y)} for d, y in ROT.items()]
-parts += [{"when": {"power": str(l)}, "apply": apply(f"power_{l}")} for l in range(16)]
+# Unpowered dust (0) shows no number, so idle wiring stays clean.
+parts += [{"when": {"power": str(l)}, "apply": apply(f"power_{l}")} for l in range(1, 16)]
 static_file("minecraft/blockstates/redstone_wire.json", json.dumps({"multipart": parts}, indent=1), PACK)

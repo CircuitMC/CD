@@ -128,19 +128,23 @@ GRIP = pal("2a1a10", "4a3020", "6a4630", "835b3e")
 BD = Diag(8.0, 8.0)  # centre frame for bows
 
 
-def bow_body(ctx, bend=0.0):
-    """Limbs: circular arc bulging toward the top-right corner."""
+# One fixed bow geometry for all four textures (the bow never moves between frames).
+BOW_C = -3.8      # arc centre on the u axis (toward bottom-left)
+BOW_HALF = 7.6    # limb tips at v = +-BOW_HALF, u = 0 (top-left / bottom-right corners)
+
+
+def bow_body(ctx):
+    """Limbs: circular arc from the top-left to the bottom-right corner region,
+    bulging toward the top-right (shooting direction)."""
     import math
-    c = -3.2 + bend * 1.2          # arc centre on the u axis
-    half = 7.0 - bend * 0.5        # tip offset along v
-    r = math.hypot(c, half)
-    a = math.degrees(math.atan2(half, -c))
-    pts = [BD.p(c + r * math.cos(math.radians(t)), r * math.sin(math.radians(t)))
+    r = math.hypot(BOW_C, BOW_HALF)
+    a = math.degrees(math.atan2(BOW_HALF, -BOW_C))
+    pts = [BD.p(BOW_C + r * math.cos(math.radians(t)), r * math.sin(math.radians(t)))
            for t in np.linspace(-a, a, 25)]
-    limbs = U(stroke(ctx, pts[:13], 1.2, 1.9), stroke(ctx, pts[12:], 1.9, 1.2))
+    limbs = U(stroke(ctx, pts[:13], 1.3, 2.0), stroke(ctx, pts[12:], 2.0, 1.3))
     t = spr(ctx, limbs, BOW_WOOD, bevel=1, porosity=0.2)
-    apex = c + r
-    gm = BD.rect(ctx, apex - 1.4, -1.3, apex + 0.6, 1.3)
+    apex = BOW_C + r
+    gm = BD.rect(ctx, apex - 1.3, -1.3, apex + 0.5, 1.3)
     grip = spr(ctx, gm, GRIP, bevel=1)
     return t, grip, pts[0], pts[-1], apex
 
@@ -163,15 +167,30 @@ def arrow_layer(ctx, d, u0, u1, head_p=ARROWHEAD):
     return [fletch, shaft, head]
 
 
+BOW_ARROW = 11.0          # arrow length (u units); tip just past the arc at full draw
+BOW_DRAW = (1.2, 2.4, 3.6)  # string pull-back toward the bottom-left per pulling frame
+
+
+def bow_arrow(ctx, nock, tip):
+    """Nocked arrow: thin shaft, small head, 1-2 texel fletching on the string."""
+    d = BD
+    shaft = rod(ctx, [d.p(nock + 0.4, 0), d.p(tip - 1.6, 0)], 1.4, WOOD, outline=False)
+    hm = d.poly(ctx, [(tip - 2.6, -1.6), (tip, 0), (tip - 2.6, 1.6), (tip - 2.0, 0)])
+    hp = pal("34343a", "6e6e78", "a2a2ac", "d4d4dc")
+    head = spr(ctx, hm, hp, bevel=1, outline=False)
+    fl = d.poly(ctx, [(nock, -1.5), (nock + 1.5, -1.5), (nock + 2.6, 0), (nock + 1.5, 1.5), (nock, 1.5),
+                      (nock + 1.0, 0)])
+    fletch = spr(ctx, fl, FEATHER, bevel=1, outline=False)
+    return [fletch, shaft, head]
+
+
 def bow(ctx, pull=-1):
-    bend = 0.0 if pull < 0 else (0.3, 0.65, 1.0)[pull]
-    limbs, grip, a, b, apex = bow_body(ctx, bend)
+    limbs, grip, a, b, apex = bow_body(ctx)
     if pull < 0:
         return compose(ctx, string(ctx, [a, b]), limbs, grip)
-    back = (1.6, 3.0, 4.2)[pull]
-    q = BD.p(-back, 0)
-    arr = arrow_layer(ctx, BD, -back - 0.6, apex + 3.6 - back * 0.3)
-    return compose(ctx, string(ctx, [a, q, b]), limbs, *arr[:2], grip, arr[2])
+    q = -BOW_DRAW[pull]
+    s = string(ctx, [a, BD.p(q, 0), b])
+    return compose(ctx, s, limbs, grip, *bow_arrow(ctx, q, q + BOW_ARROW))
 
 
 register("item/bow", lambda ctx: bow(ctx))

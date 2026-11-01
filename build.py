@@ -42,7 +42,7 @@ from generator.registry import FILES, TEXTURES
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT / os.environ.get("CMC_DIST", "dist")
 OVERRIDES = ROOT / "overrides"
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 VANILLA = "26.3"
 
 # Sampled versions and their resource pack formats.
@@ -235,13 +235,9 @@ def modern_targets():
     for p in paths:
         seen = [(v, f, INDEXES[v][p]) for v, f in MODERN if p in INDEXES.get(v, {})]
         old = [x for x in seen if x[1] < OVERLAY_MIN]
-        # Pre-overlay versions share the base folder: use the layout most of them use
-        # (ties -> newest), e.g. the 256x256 title logo of 1.13-1.19 over 1.20's.
-        pool = old or seen
-        votes = {}
-        for v, f, e in pool:
-            votes.setdefault(frame_layout(e)[:2], []).append((v, f, e))
-        bv, bf, be = max(votes.values(), key=lambda xs: (len(xs), MODERN.index(xs[-1][:2])))[-1]
+        # Pre-overlay versions share the base folder; it carries the 1.20.1 layout
+        # (the most used pre-overlay version), older 1.13-1.19 layouts lose ties.
+        bv, bf, be = (old or seen)[-1]
         bdims = frame_layout(be)[:2]
         key = resolve(p, bdims)
         if key:

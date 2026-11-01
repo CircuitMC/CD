@@ -350,18 +350,28 @@ def brewing_stand(ctx):
 
 @texture("item/comparator")
 def comparator(ctx):
-    slab = poly(ctx, [(1.0, 9.0), (8.0, 5.6), (15.0, 9.0), (8.0, 12.4)])
-    side = U(slab, poly(ctx, [(1.0, 9.0), (8.0, 12.4), (15.0, 9.0), (15.0, 10.6), (8.0, 14.0), (1.0, 10.6)]))
-    t = spr(ctx, side, pal("3a3a3c", "5a5a5d", "8a8a8d", "a5a5a8", "c3c3c6"), bevel=1)
-    ring = ctx.edge(side, 1) > 0
-    paint(t, slab * (~ring), pal("a5a5a8")[0])
-    paint(t, line(ctx, [(5.0, 9.4), (8.0, 7.6), (11.0, 9.4)], 0.6) * (~ring), pal("8a1010")[0])
+    """Top-down icon: stone plate, redstone line, two back torches and one front torch."""
+    plate_p = pal("5a5a5e", "8e8e92", "a8a8ac", "bcbcc0", "d2d2d6")
+    pm = box(ctx, 2.0, 2.0, 14.0, 14.0)
+    t = spr(ctx, pm, plate_p, bevel=1.5, smooth=0.3)
+    ring = ctx.edge(pm, 1) > 0
+    n = ctx.texel_noise("cmp")
+    inner = (pm > 0.5) & ~ring & ~(ctx.edge(pm, 2) > 0)
+    t.color[inner & (n < 0.14)] = plate_p[1]
+    t.color[inner & (n > 0.9)] = plate_p[4]
+    dust = U(box(ctx, 4, 7, 5, 10), box(ctx, 11, 7, 12, 10), box(ctx, 4, 9, 12, 10), box(ctx, 7, 10, 9, 11))
+    paint(t, dust, pal("b01818")[0])
+    paint(t, U(box(ctx, 4, 7, 5, 8), box(ctx, 11, 7, 12, 8)), pal("d83a2a")[0])
+    t.emissive = np.where(dust > 0.5, 0.3, 0.0)
     layers = [t]
-    for x, y, lit in ((4.6, 8.6, True), (11.4, 8.6, True), (8.0, 11.0, False)):
-        stick = rod(ctx, [(x, y), (x, y - 3.4)], 1.0, WOOD)
-        head = spr(ctx, circ(ctx, x, y - 3.6, 0.9), pal("5a0808", "c41f1f", "ff6a50") if lit else
-                   pal("3a0606", "6a1010", "8a2020"), bevel=1, emissive=0.8 if lit else 0.0)
-        layers += [stick, head]
+    for x, y, lit in ((5, 5, True), (11, 5, True), (8, 12, False)):
+        stick = spr(ctx, box(ctx, x - 1, y, x + 1, y + 2), WOOD[1:], outline=False, bevel=1)
+        paint(stick, box(ctx, x, y, x + 1, y + 2), WOOD[1])
+        tp = pal("8a0e0e", "d42a20", "ff6a4a") if lit else pal("4a0808", "7a1414", "9a2420")
+        tip = spr(ctx, box(ctx, x - 1, y - 2, x + 1, y), tp, outline=False, bevel=1, emissive=0.9 if lit else 0.1)
+        paint(tip, box(ctx, x - 1, y - 2, x, y - 1), tp[2])
+        paint(tip, box(ctx, x, y - 1, x + 1, y), tp[0])
+        layers += [stick, tip]
     return compose(ctx, *layers)
 
 

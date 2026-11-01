@@ -15,63 +15,87 @@ RAIL_IRON = pal("3a3a40", "5a5a62", "84848c", "a8a8b0", "cdcdd3")
 
 
 # ------------------------------------------------------------------ dust (grayscale, tinted)
-def dust_noise(ctx, salt):
-    return 0.62 + ctx.quantize(ctx.texel_noise(salt), 4) * 0.34
+def dust_field(ctx):
+    """Shared brightness field so the dot and both lines match where they overlap."""
+    g = ctx.sub("block/redstone_dust").texel_noise("dust")
+    return 0.8 + ctx.quantize(g, 3) * 0.16
+
+
+def dust_tex(ctx, m):
+    t = blank(ctx)
+    v = dust_field(ctx)
+    paint(t, m, np.repeat(v[..., None], 3, -1), h=0.6, alpha=1, smooth=0.35)
+    return t
 
 
 def dust_dot(ctx):
-    t = blank(ctx)
-    n = ctx.noise(3, 2, 0.5, salt="dot")
-    d = np.hypot(ctx.x - 8, ctx.y - 8) + (n - 0.5) * 2.2
-    m = ctx.organic(d < 4.1, 0.25, "dot")
-    v = dust_noise(ctx, "dot") * np.clip(1.08 - d / 12, 0, 1)
-    paint(t, m, np.repeat(v[..., None], 3, -1), h=0.6, alpha=1, smooth=0.35)
-    # scattered grains around the blob
-    grains = texel_set(ctx, [(3, 6), (12, 9), (6, 12), (10, 3), (4, 10), (11, 12)])
-    paint(t, grains & ~m, np.full(3, 0.7, np.float32), h=0.55, alpha=1)
-    return t
+    # round 4x4 blob centred on the block, overlapping the 2-texel lines
+    if ctx.pixel_art:
+        m = glyph(ctx, [".##.", "####", "####", ".##."], 6, 6)
+    else:
+        m = M(ctx.circle(8, 8, 2.15)) | M(ctx.rect(7, 6, 9, 10)) | M(ctx.rect(6, 7, 10, 9))
+    return dust_tex(ctx, m)
 
 
 def dust_line(ctx, vertical=True):
-    t = blank(ctx)
-    a, b = (ctx.x, ctx.y) if vertical else (ctx.y, ctx.x)
-    wob = ctx.lattice_noise(16, 3, "lw") if vertical else ctx.lattice_noise(3, 16, "lw")
-    half = 1.8 + (wob - 0.5) * 1.2
-    m = np.abs(a - 8) < half
-    edge = np.abs(a - 8) > half - 0.9
-    v = dust_noise(ctx, "line") * np.where(edge, 0.85, 1.0)
-    paint(t, m, np.repeat(v[..., None], 3, -1), h=0.6, alpha=1, smooth=0.35)
-    off = (np.abs(a - 8) < half + 1.2) & ~m & (ctx.texel_noise("lg", soft=False) > 0.82)
-    paint(t, off, np.full(3, 0.68, np.float32), h=0.55, alpha=1)
-    _ = b
-    return t
+    a = ctx.x if vertical else ctx.y
+    return dust_tex(ctx, (a >= 7) & (a < 9))
 
 
 def dust_overlay(ctx):
     t = blank(ctx)
-    sp = texel_set(ctx, [(7, 7), (9, 8), (8, 10)])
+    sp = texel_set(ctx, [(7, 7), (8, 8)])
     paint(t, sp, pal("ffd2c8")[0], h=0.7, alpha=1, smooth=0.6)
     return t
 
 
 # ------------------------------------------------------------------ rails
+# One design for every rail: bars at x [2,4) and [12,14) (outer column lit,
+# inner column shaded), 2-texel sleepers every 4 texels, lit on their upper /
+# counter-clockwise half.  rail_corner bends the same track around the
+# bottom-right corner, so it meets the straight pieces without a step.
+RAIL_BARS = ((2, 4), (12, 14))
+SLEEPER_ROWS = (1, 5, 9, 13)
+
+
+def paint_ties(ctx, t, tie, tie_dark):
+    g = ctx.sub("block/rail").texel_noise("tie")
+    paint(t, tie, ctx.palette(TIE[1:], 0.2 + g * 0.6), h=0.45, alpha=1, porosity=0.2)
+    tone(t, tie & tie_dark, 0.78)
+    return t
+
+
+def paint_track(ctx, t, tie, tie_dark, bars, rp=RAIL_IRON, metal=IRON, ties=True):
+    """tie / tie_dark: sleeper masks; bars: list of (lit_half, dark_half) masks."""
+    if ties:
+        paint_ties(ctx, t, tie, tie_dark)
+    for lit, dark in bars:
+        paint(t, lit, rp[3], h=0.8, alpha=1, metal=metal, smooth=0.7)
+        paint(t, dark, rp[1], h=0.75, alpha=1, metal=metal, smooth=0.6)
+        paint(t, dark & tie & tie_dark, rp[0])  # spike heads
+        if not ctx.pixel_art:
+            paint(t, lit & (ctx.sub("block/rail").texel_noise("sheen") > 0.7), rp[4])
+    return t
+
+
+def straight_track(ctx, t, kind="rail"):
+    tie = np.zeros((ctx.H, ctx.W), bool)
+    for y0 in SLEEPER_ROWS:
+        tie |= rectm(ctx, 1, y0, 15, y0 + 2)
+    tie_dark = M(np.isin(ctx.ty, [y + 1 for y in SLEEPER_ROWS]))
+    bars = [(rectm(ctx, a, 0, a + 1, 16), rectm(ctx, a + 1, 0, b, 16)) for a, b in RAIL_BARS]
+    gold = kind == "powered"
+    return tie, tie_dark, bars, (GOLD_P if gold else RAIL_IRON), (GOLD if gold else IRON)
+
+
 def rail_base(ctx, kind="rail", on=False):
     t = blank(ctx)
-    ties_p = DARK_WOOD if kind in ("activator",) else TIE
-    for y0 in (1, 5, 9, 13):
-        tie = rectm(ctx, 1, y0, 15, y0 + 2)
-        g = ctx.noise(1, 1, salt=f"tie{y0}", stretch=(4, 1))
-        paint(t, tie, ctx.palette(ties_p[1:], g * 0.7 + 0.15), h=0.45, alpha=1, porosity=0.2)
-        tone(t, rectm(ctx, 1, y0 + 1, 15, y0 + 2), 0.78)
-        tone(t, rectm(ctx, 1, y0, 2, y0 + 2), 0.85)
-    rp = GOLD_P if kind == "powered" else RAIL_IRON
-    metal = GOLD if kind == "powered" else IRON
-    center = None
+    tie, tie_dark, bars, rp, metal = straight_track(ctx, t, kind)
+    paint_ties(ctx, t, tie, tie_dark)
     if kind == "powered":
-        center = rectm(ctx, 6, 0, 10, 16)
-        paint(t, center & rectm(ctx, 7, 0, 9, 16), (REDSTONE[4] if on else REDSTONE_OFF[2]), h=0.55, alpha=1,
+        paint(t, rectm(ctx, 7, 0, 9, 16), (REDSTONE[4] if on else REDSTONE_OFF[2]), h=0.55, alpha=1,
               emissive=0.8 if on else 0)
-        paint(t, rectm(ctx, 6, 0, 7, 16) | rectm(ctx, 9, 0, 10, 16), TIE[0], h=0.5, alpha=1)
+        paint(t, rectm(ctx, 7, 0, 8, 16), (REDSTONE[5] if on else REDSTONE_OFF[3]))
     elif kind == "detector":
         plate = rectm(ctx, 5, 4, 11, 12)
         paint(t, plate, ctx.palette(SMOOTH[1:5], ctx.texel_noise("pl")), h=0.65, alpha=1)
@@ -81,40 +105,31 @@ def rail_base(ctx, kind="rail", on=False):
     elif kind == "activator":
         strip = rectm(ctx, 7, 0, 9, 16)
         paint(t, strip, ctx.palette(RAIL_IRON[1:3], ctx.texel_noise("as")), h=0.5, alpha=1, metal=IRON)
-        for y0 in (2, 6, 10, 14):
+        for y0 in (3, 7, 11, 15):
             nub = rectm(ctx, 7, y0, 9, y0 + 1)
             paint(t, nub, REDSTONE[5] if on else REDSTONE_OFF[3], h=0.6, emissive=0.8 if on else 0, metal=0)
-    for x0 in (2, 12):
-        r = rectm(ctx, x0, 0, x0 + 2, 16)
-        paint(t, r & rectm(ctx, x0, 0, x0 + 1, 16), rp[3], h=0.8, alpha=1, metal=metal, smooth=0.7)
-        paint(t, r & rectm(ctx, x0 + 1, 0, x0 + 2, 16), rp[1], h=0.75, alpha=1, metal=metal, smooth=0.6)
-        # bolts where rails cross ties
-        for y0 in (1, 5, 9, 13):
-            paint(t, rectm(ctx, x0 + 1, y0 + 1, x0 + 2, y0 + 2), rp[0])
-        if not ctx.pixel_art:
-            sheen = r & (ctx.texel_noise(f"sh{x0}") > 0.7) & rectm(ctx, x0, 0, x0 + 1, 16)
-            paint(t, sheen, rp[4])
-    return t
+    return paint_track(ctx, t, tie, tie_dark, bars, rp, metal, ties=False)
 
 
 def rail_corner(ctx):
+    """Curve joining the south (bottom) and east (right) edges."""
     t = blank(ctx)
-    d = np.hypot(ctx.x - 16, ctx.y - 16)
-    ang = np.arctan2(16 - ctx.y, 16 - ctx.x)  # 0 .. pi/2 inside the quadrant
-    for k in range(5):
-        a0 = (k + 0.5) / 5 * (math.pi / 2)
-        # tie: thin wedge along the radius
-        wedge = (np.abs(ang - a0) * d < 1.0) & (d > 1.0) & (d < 15.2)
-        g = ctx.texel_noise(f"ct{k}")
-        paint(t, wedge, ctx.palette(TIE[1:], 0.25 + g * 0.6), h=0.45, alpha=1, porosity=0.2)
-    for r0 in (13.0, 3.0):
-        inner = (d >= r0 - 1) & (d < r0)
-        outer = (d >= r0) & (d < r0 + 1)
-        paint(t, inner, RAIL_IRON[3], h=0.8, alpha=1, metal=IRON, smooth=0.7)
-        paint(t, outer, RAIL_IRON[1], h=0.75, alpha=1, metal=IRON, smooth=0.6)
-    t.alpha = (t.alpha > 0.5).astype(np.float32)
-    return t
-
+    d = np.hypot(16 - ctx.x, 16 - ctx.y)
+    ang = np.arctan2(16 - ctx.y, 16 - ctx.x)  # 0 = toward west, pi/2 = toward north
+    tie = np.zeros((ctx.H, ctx.W), bool)
+    tie_dark = np.zeros_like(tie)
+    for k in range(4):
+        a0 = (k + 0.5) / 4 * (math.pi / 2)
+        off = np.sin(ang - a0) * d          # signed distance from the sleeper's centre line
+        band = (np.abs(off) < 1.0) & (np.cos(ang - a0) > 0) & (d >= 1.0) & (d < 15.0)
+        tie |= band
+        tie_dark |= band & (off < 0)        # clockwise half is the shaded one
+    bars = []
+    for a, b in RAIL_BARS:                  # straight bar [a,b) -> radii (16-b, 16-a]
+        r_in, r_out = 16 - b, 16 - a
+        mid = (r_in + r_out) / 2
+        bars.append(((d > mid) & (d <= r_out), (d > r_in) & (d <= mid)))
+    return paint_track(ctx, t, tie, tie_dark, bars)
 
 # ------------------------------------------------------------------ repeater / comparator
 def slab_top(ctx, salt="slab"):
@@ -233,12 +248,10 @@ def tripwire_hook(ctx):
 
 
 def tripwire(ctx):
-    t = blank(ctx)
-    STR = pal("8b8b8f", "b9b9bd", "e2e2e6")
-    for y in (1, 3):
-        line = rectm(ctx, 0, y, 16, y + 1)
-        v = ((ctx.tx + y) % 3 == 0)
-        paint(t, line, np.where(v[..., None], STR[0], STR[2] if y == 1 else STR[1]), h=0.6, alpha=1)
+    """Every row identical (models sample different 2-texel strips); period 4 along x."""
+    STR = pal("8e8e94", "b4b4ba", "d6d6dc", "ececf0")
+    idx = np.array([3, 2, 1, 2], np.int32)[ctx.tx % 4]
+    t = Tex(ctx, STR[idx], alpha=1.0, height=0.6, smooth=0.2, wrap=False, grain=0)
     return t
 
 
