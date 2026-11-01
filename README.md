@@ -33,7 +33,9 @@ Tested by loading the 16x packs in real clients (title screen + resource reload,
 
 **Which resolution?** 16x looks like the classic game and runs everywhere. 64x and 256x need more video
 memory. 1024x means every block texture is 1024×1024: the block atlas alone needs well over 4 GB of video
-memory and may exceed the maximum texture size of many GPUs — use it only on high-end hardware.
+memory and may exceed the maximum texture size of many GPUs — use it only on high-end hardware. The
+1024x pack (about 20 GB) is too large for GitHub release downloads; build it locally with
+`build.py --res 1024`.
 
 ## Known limitations
 
