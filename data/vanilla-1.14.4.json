@@ -1,0 +1,7891 @@
+{
+ "pack_version": 4,
+ "textures": {
+  "block/acacia_door_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/acacia_door_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/acacia_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/acacia_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/acacia_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/acacia_planks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/acacia_sapling": {
+   "h": 16,
+   "w": 16
+  },
+  "block/acacia_trapdoor": {
+   "h": 16,
+   "w": 16
+  },
+  "block/activator_rail": {
+   "h": 16,
+   "w": 16
+  },
+  "block/activator_rail_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/allium": {
+   "h": 16,
+   "w": 16
+  },
+  "block/andesite": {
+   "h": 16,
+   "w": 16
+  },
+  "block/anvil": {
+   "h": 16,
+   "w": 16
+  },
+  "block/anvil_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/attached_melon_stem": {
+   "h": 16,
+   "w": 16
+  },
+  "block/attached_pumpkin_stem": {
+   "h": 16,
+   "w": 16
+  },
+  "block/azure_bluet": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bamboo_large_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bamboo_singleleaf": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bamboo_small_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bamboo_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bamboo_stalk": {
+   "h": 16,
+   "w": 16
+  },
+  "block/barrel_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/barrel_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/barrel_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/barrel_top_open": {
+   "h": 16,
+   "w": 16
+  },
+  "block/beacon": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bedrock": {
+   "h": 16,
+   "w": 16
+  },
+  "block/beetroots_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/beetroots_stage1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/beetroots_stage2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/beetroots_stage3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bell_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bell_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bell_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_door_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_door_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_planks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_sapling": {
+   "h": 16,
+   "w": 16
+  },
+  "block/birch_trapdoor": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/black_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blast_furnace_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blast_furnace_front_on": {
+   "h": 32,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/blast_furnace_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blast_furnace_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_ice": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_orchid": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/blue_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bone_block_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bone_block_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bookshelf": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brain_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brain_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brain_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brewing_stand": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brewing_stand_base": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_mushroom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_mushroom_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/brown_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bubble_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bubble_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/bubble_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cactus_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cactus_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cactus_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cake_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cake_inner": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cake_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cake_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/campfire_fire": {
+   "h": 128,
+   "mcmeta": {
+    "animation": {
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/campfire_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/campfire_log_lit": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 20,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/carrots_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/carrots_stage1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/carrots_stage2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/carrots_stage3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cartography_table_side1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cartography_table_side2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cartography_table_side3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cartography_table_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/carved_pumpkin": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cauldron_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cauldron_inner": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cauldron_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cauldron_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chain_command_block_back": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/chain_command_block_conditional": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/chain_command_block_front": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/chain_command_block_side": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/chipped_anvil_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chiseled_quartz_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chiseled_quartz_block_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chiseled_red_sandstone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chiseled_sandstone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chiseled_stone_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chorus_flower": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chorus_flower_dead": {
+   "h": 16,
+   "w": 16
+  },
+  "block/chorus_plant": {
+   "h": 16,
+   "w": 16
+  },
+  "block/clay": {
+   "h": 16,
+   "w": 16
+  },
+  "block/coal_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/coal_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/coarse_dirt": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cobblestone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cobweb": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cocoa_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cocoa_stage1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cocoa_stage2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/command_block_back": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/command_block_conditional": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/command_block_front": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/command_block_side": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/comparator": {
+   "h": 16,
+   "w": 16
+  },
+  "block/comparator_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/composter_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/composter_compost": {
+   "h": 16,
+   "w": 16
+  },
+  "block/composter_ready": {
+   "h": 16,
+   "w": 16
+  },
+  "block/composter_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/composter_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/conduit": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cornflower": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cracked_stone_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/crafting_table_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/crafting_table_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/crafting_table_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cut_red_sandstone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cut_sandstone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/cyan_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/damaged_anvil_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dandelion": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_door_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_door_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_planks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_sapling": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_oak_trapdoor": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dark_prismarine": {
+   "h": 16,
+   "w": 16
+  },
+  "block/daylight_detector_inverted_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/daylight_detector_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/daylight_detector_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_brain_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_brain_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_brain_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_bubble_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_bubble_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_bubble_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_bush": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_fire_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_fire_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_fire_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_horn_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_horn_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_horn_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_tube_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_tube_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dead_tube_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/debug": {
+   "h": 16,
+   "w": 16
+  },
+  "block/debug2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_4": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_5": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_6": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_7": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_8": {
+   "h": 16,
+   "w": 16
+  },
+  "block/destroy_stage_9": {
+   "h": 16,
+   "w": 16
+  },
+  "block/detector_rail": {
+   "h": 16,
+   "w": 16
+  },
+  "block/detector_rail_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/diamond_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/diamond_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/diorite": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dirt": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dispenser_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dispenser_front_vertical": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dragon_egg": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dried_kelp_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dried_kelp_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dried_kelp_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dropper_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/dropper_front_vertical": {
+   "h": 16,
+   "w": 16
+  },
+  "block/emerald_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/emerald_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/enchanting_table_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/enchanting_table_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/enchanting_table_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/end_portal_frame_eye": {
+   "h": 16,
+   "w": 16
+  },
+  "block/end_portal_frame_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/end_portal_frame_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/end_rod": {
+   "h": 16,
+   "w": 16
+  },
+  "block/end_stone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/end_stone_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/farmland": {
+   "h": 16,
+   "w": 16
+  },
+  "block/farmland_moist": {
+   "h": 16,
+   "w": 16
+  },
+  "block/fern": {
+   "h": 16,
+   "w": 16
+  },
+  "block/fire_0": {
+   "h": 512,
+   "mcmeta": {
+    "animation": {
+     "frames": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ]
+    }
+   },
+   "w": 16
+  },
+  "block/fire_1": {
+   "h": 512,
+   "mcmeta": {
+    "animation": {}
+   },
+   "w": 16
+  },
+  "block/fire_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/fire_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/fire_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/fletching_table_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/fletching_table_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/fletching_table_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/flower_pot": {
+   "h": 16,
+   "w": 16
+  },
+  "block/frosted_ice_0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/frosted_ice_1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/frosted_ice_2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/frosted_ice_3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/furnace_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/furnace_front_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/furnace_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/furnace_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/glowstone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gold_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gold_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/granite": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grass_block_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grass_block_side_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grass_block_snow": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grass_block_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grass_path_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grass_path_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gravel": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/gray_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/green_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grindstone_pivot": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grindstone_round": {
+   "h": 16,
+   "w": 16
+  },
+  "block/grindstone_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/hay_block_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/hay_block_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/hopper_inside": {
+   "h": 16,
+   "w": 16
+  },
+  "block/hopper_outside": {
+   "h": 16,
+   "w": 16
+  },
+  "block/hopper_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/horn_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/horn_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/horn_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/ice": {
+   "h": 16,
+   "w": 16
+  },
+  "block/iron_bars": {
+   "h": 16,
+   "w": 16
+  },
+  "block/iron_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/iron_door_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/iron_door_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/iron_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/iron_trapdoor": {
+   "h": 16,
+   "w": 16
+  },
+  "block/item_frame": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jack_o_lantern": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jigsaw_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jigsaw_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jigsaw_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jukebox_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jukebox_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_door_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_door_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_planks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_sapling": {
+   "h": 16,
+   "w": 16
+  },
+  "block/jungle_trapdoor": {
+   "h": 16,
+   "w": 16
+  },
+  "block/kelp": {
+   "h": 320,
+   "mcmeta": {
+    "animation": {
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/kelp_plant": {
+   "h": 320,
+   "mcmeta": {
+    "animation": {
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/ladder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lantern": {
+   "h": 48,
+   "mcmeta": {
+    "animation": {
+     "frametime": 8
+    }
+   },
+   "w": 16
+  },
+  "block/lapis_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lapis_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/large_fern_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/large_fern_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lava_flow": {
+   "h": 512,
+   "mcmeta": {
+    "animation": {
+     "frametime": 3
+    }
+   },
+   "w": 32
+  },
+  "block/lava_still": {
+   "h": 320,
+   "mcmeta": {
+    "animation": {
+     "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      18,
+      17,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+     ],
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/lectern_base": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lectern_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lectern_sides": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lectern_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lever": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_blue_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/light_gray_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lilac_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lilac_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lily_of_the_valley": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lily_pad": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/lime_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/loom_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/loom_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/loom_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/loom_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magenta_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/magma": {
+   "h": 48,
+   "mcmeta": {
+    "animation": {
+     "frames": [
+      0,
+      1,
+      2
+     ],
+     "frametime": 8,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/melon_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/melon_stem": {
+   "h": 16,
+   "w": 16
+  },
+  "block/melon_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/mossy_cobblestone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/mossy_stone_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/mushroom_block_inside": {
+   "h": 16,
+   "w": 16
+  },
+  "block/mushroom_stem": {
+   "h": 16,
+   "w": 16
+  },
+  "block/mycelium_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/mycelium_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/nether_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/nether_portal": {
+   "h": 512,
+   "mcmeta": {
+    "animation": {}
+   },
+   "w": 16
+  },
+  "block/nether_quartz_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/nether_wart_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/nether_wart_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/nether_wart_stage1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/nether_wart_stage2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/netherrack": {
+   "h": 16,
+   "w": 16
+  },
+  "block/note_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_door_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_door_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_planks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_sapling": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oak_trapdoor": {
+   "h": 16,
+   "w": 16
+  },
+  "block/observer_back": {
+   "h": 16,
+   "w": 16
+  },
+  "block/observer_back_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/observer_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/observer_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/observer_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/obsidian": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_tulip": {
+   "h": 16,
+   "w": 16
+  },
+  "block/orange_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/oxeye_daisy": {
+   "h": 16,
+   "w": 16
+  },
+  "block/packed_ice": {
+   "h": 16,
+   "w": 16
+  },
+  "block/peony_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/peony_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_tulip": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pink_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/piston_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/piston_inner": {
+   "h": 16,
+   "w": 16
+  },
+  "block/piston_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/piston_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/piston_top_sticky": {
+   "h": 16,
+   "w": 16
+  },
+  "block/podzol_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/podzol_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/polished_andesite": {
+   "h": 16,
+   "w": 16
+  },
+  "block/polished_diorite": {
+   "h": 16,
+   "w": 16
+  },
+  "block/polished_granite": {
+   "h": 16,
+   "w": 16
+  },
+  "block/poppy": {
+   "h": 16,
+   "w": 16
+  },
+  "block/potatoes_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/potatoes_stage1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/potatoes_stage2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/potatoes_stage3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/powered_rail": {
+   "h": 16,
+   "w": 16
+  },
+  "block/powered_rail_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/prismarine": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frames": [
+      0,
+      1,
+      0,
+      2,
+      0,
+      3,
+      0,
+      1,
+      2,
+      1,
+      3,
+      1,
+      0,
+      2,
+      1,
+      2,
+      3,
+      2,
+      0,
+      3,
+      1,
+      3
+     ],
+     "frametime": 300,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/prismarine_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pumpkin_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pumpkin_stem": {
+   "h": 16,
+   "w": 16
+  },
+  "block/pumpkin_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purple_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purpur_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purpur_pillar": {
+   "h": 16,
+   "w": 16
+  },
+  "block/purpur_pillar_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/quartz_block_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/quartz_block_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/quartz_block_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/quartz_pillar": {
+   "h": 16,
+   "w": 16
+  },
+  "block/quartz_pillar_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/rail": {
+   "h": 16,
+   "w": 16
+  },
+  "block/rail_corner": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_mushroom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_mushroom_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_nether_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_sand": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_sandstone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_sandstone_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_sandstone_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_tulip": {
+   "h": 16,
+   "w": 16
+  },
+  "block/red_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_dust_dot": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_dust_line0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_dust_line1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_dust_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_lamp": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_lamp_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_ore": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_torch": {
+   "h": 16,
+   "w": 16
+  },
+  "block/redstone_torch_off": {
+   "h": 16,
+   "w": 16
+  },
+  "block/repeater": {
+   "h": 16,
+   "w": 16
+  },
+  "block/repeater_on": {
+   "h": 16,
+   "w": 16
+  },
+  "block/repeating_command_block_back": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/repeating_command_block_conditional": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/repeating_command_block_front": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/repeating_command_block_side": {
+   "h": 64,
+   "mcmeta": {
+    "animation": {
+     "frametime": 10,
+     "interpolate": true
+    }
+   },
+   "w": 16
+  },
+  "block/rose_bush_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/rose_bush_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sand": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sandstone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sandstone_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sandstone_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/scaffolding_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/scaffolding_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/scaffolding_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sea_lantern": {
+   "h": 80,
+   "mcmeta": {
+    "animation": {
+     "frametime": 5
+    }
+   },
+   "w": 16
+  },
+  "block/sea_pickle": {
+   "h": 16,
+   "w": 16
+  },
+  "block/seagrass": {
+   "h": 288,
+   "mcmeta": {
+    "animation": {
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/slime_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smithing_table_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smithing_table_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smithing_table_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smithing_table_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smoker_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smoker_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smoker_front_on": {
+   "h": 48,
+   "mcmeta": {
+    "animation": {
+     "frametime": 4,
+     "interpolate": false
+    }
+   },
+   "w": 16
+  },
+  "block/smoker_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smoker_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smooth_stone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/smooth_stone_slab_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/snow": {
+   "h": 16,
+   "w": 16
+  },
+  "block/soul_sand": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spawner": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sponge": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_door_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_door_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_leaves": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_planks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_sapling": {
+   "h": 16,
+   "w": 16
+  },
+  "block/spruce_trapdoor": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stone": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stone_bricks": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stonecutter_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stonecutter_saw": {
+   "h": 48,
+   "mcmeta": {
+    "animation": {
+     "frametime": 1,
+     "interpolate": false
+    }
+   },
+   "w": 16
+  },
+  "block/stonecutter_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stonecutter_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_acacia_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_acacia_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_birch_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_birch_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_dark_oak_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_dark_oak_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_jungle_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_jungle_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_oak_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_oak_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_spruce_log": {
+   "h": 16,
+   "w": 16
+  },
+  "block/stripped_spruce_log_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/structure_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/structure_block_corner": {
+   "h": 16,
+   "w": 16
+  },
+  "block/structure_block_data": {
+   "h": 16,
+   "w": 16
+  },
+  "block/structure_block_load": {
+   "h": 16,
+   "w": 16
+  },
+  "block/structure_block_save": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sugar_cane": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sunflower_back": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sunflower_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sunflower_front": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sunflower_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sweet_berry_bush_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sweet_berry_bush_stage1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sweet_berry_bush_stage2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/sweet_berry_bush_stage3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tall_grass_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tall_grass_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tall_seagrass_bottom": {
+   "h": 304,
+   "mcmeta": {
+    "animation": {
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/tall_seagrass_top": {
+   "h": 304,
+   "mcmeta": {
+    "animation": {
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tnt_bottom": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tnt_side": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tnt_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/torch": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tripwire": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tripwire_hook": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tube_coral": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tube_coral_block": {
+   "h": 16,
+   "w": 16
+  },
+  "block/tube_coral_fan": {
+   "h": 16,
+   "w": 16
+  },
+  "block/turtle_egg": {
+   "h": 16,
+   "w": 16
+  },
+  "block/turtle_egg_slightly_cracked": {
+   "h": 16,
+   "w": 16
+  },
+  "block/turtle_egg_very_cracked": {
+   "h": 16,
+   "w": 16
+  },
+  "block/vine": {
+   "h": 16,
+   "w": 16
+  },
+  "block/water_flow": {
+   "h": 1024,
+   "mcmeta": {
+    "animation": {}
+   },
+   "w": 32
+  },
+  "block/water_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "block/water_still": {
+   "h": 512,
+   "mcmeta": {
+    "animation": {
+     "frametime": 2
+    }
+   },
+   "w": 16
+  },
+  "block/wet_sponge": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage0": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage1": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage2": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage3": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage4": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage5": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage6": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wheat_stage7": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_tulip": {
+   "h": 16,
+   "w": 16
+  },
+  "block/white_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "block/wither_rose": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_concrete": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_concrete_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_glazed_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_shulker_box": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_stained_glass": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_stained_glass_pane_top": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_terracotta": {
+   "h": 16,
+   "w": 16
+  },
+  "block/yellow_wool": {
+   "h": 16,
+   "w": 16
+  },
+  "colormap/foliage": {
+   "h": 256,
+   "w": 256
+  },
+  "colormap/grass": {
+   "h": 256,
+   "w": 256
+  },
+  "effect/dither": {
+   "h": 4,
+   "w": 4
+  },
+  "entity/alex": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/armorstand/wood": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/arrow": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/banner/base": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/border": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/bricks": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/circle": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/creeper": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/cross": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/curly_border": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/diagonal_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/diagonal_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/diagonal_up_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/diagonal_up_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/flower": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/globe": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/gradient": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/gradient_up": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/half_horizontal": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/half_horizontal_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/half_vertical": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/half_vertical_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/mojang": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/rhombus": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/skull": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/small_stripes": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/square_bottom_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/square_bottom_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/square_top_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/square_top_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/straight_cross": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_center": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_downleft": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_downright": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_middle": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/stripe_top": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/triangle_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/triangle_top": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/triangles_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner/triangles_top": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/banner_base": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bat": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/beacon_beam": {
+   "h": 16,
+   "w": 16
+  },
+  "entity/bear/polarbear": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/bed/black": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/blue": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/brown": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/cyan": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/gray": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/green": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/light_blue": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/light_gray": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/lime": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/magenta": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/orange": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/pink": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/purple": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/red": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/white": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bed/yellow": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/bell/bell_body": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/blaze": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/boat/acacia": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/boat/birch": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/boat/dark_oak": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/boat/jungle": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/boat/oak": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/boat/spruce": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/cat/all_black": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/black": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/british_shorthair": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/calico": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/cat_collar": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/jellie": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/ocelot": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/persian": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/ragdoll": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/red": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/siamese": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/tabby": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cat/white": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/chest/christmas": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/chest/christmas_double": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/chest/ender": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/chest/normal": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/chest/normal_double": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/chest/trapped": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/chest/trapped_double": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/chicken": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/conduit/base": {
+   "h": 16,
+   "w": 32
+  },
+  "entity/conduit/break_particle": {
+   "h": 16,
+   "w": 16
+  },
+  "entity/conduit/cage": {
+   "h": 16,
+   "w": 32
+  },
+  "entity/conduit/closed_eye": {
+   "h": 8,
+   "w": 8
+  },
+  "entity/conduit/open_eye": {
+   "h": 8,
+   "w": 8
+  },
+  "entity/conduit/wind": {
+   "h": 1024,
+   "w": 64
+  },
+  "entity/conduit/wind_vertical": {
+   "h": 1024,
+   "w": 64
+  },
+  "entity/cow/brown_mooshroom": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cow/cow": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/cow/red_mooshroom": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/creeper/creeper": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/creeper/creeper_armor": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/dolphin": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/elytra": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/enchanting_table_book": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/end_crystal/end_crystal": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/end_crystal/end_crystal_beam": {
+   "h": 256,
+   "w": 16
+  },
+  "entity/end_gateway_beam": {
+   "h": 16,
+   "w": 16
+  },
+  "entity/end_portal": {
+   "h": 256,
+   "w": 256
+  },
+  "entity/enderdragon/dragon": {
+   "h": 256,
+   "w": 256
+  },
+  "entity/enderdragon/dragon_exploding": {
+   "h": 256,
+   "w": 256
+  },
+  "entity/enderdragon/dragon_eyes": {
+   "h": 256,
+   "w": 256
+  },
+  "entity/enderdragon/dragon_fireball": {
+   "h": 16,
+   "w": 16
+  },
+  "entity/enderman/enderman": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/enderman/enderman_eyes": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/endermite": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/experience_orb": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/fish/cod": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/pufferfish": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/salmon": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_a": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_a_pattern_1": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_a_pattern_2": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_a_pattern_3": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_a_pattern_4": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_a_pattern_5": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_a_pattern_6": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_b": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_b_pattern_1": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_b_pattern_2": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_b_pattern_3": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_b_pattern_4": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_b_pattern_5": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fish/tropical_b_pattern_6": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/fishing_hook": {
+   "h": 8,
+   "w": 8
+  },
+  "entity/fox/fox": {
+   "h": 32,
+   "w": 48
+  },
+  "entity/fox/fox_sleep": {
+   "h": 32,
+   "w": 48
+  },
+  "entity/fox/snow_fox": {
+   "h": 32,
+   "w": 48
+  },
+  "entity/fox/snow_fox_sleep": {
+   "h": 32,
+   "w": 48
+  },
+  "entity/ghast/ghast": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/ghast/ghast_shooting": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/guardian": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/guardian_beam": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/guardian_elder": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/armor/horse_armor_diamond": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/armor/horse_armor_gold": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/armor/horse_armor_iron": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/armor/horse_armor_leather": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/donkey": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_black": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_brown": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_chestnut": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_creamy": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_darkbrown": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_gray": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_markings_blackdots": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_markings_white": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_markings_whitedots": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_markings_whitefield": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_skeleton": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_white": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/horse_zombie": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/horse/mule": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/illager/evoker": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/illager/evoker_fangs": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/illager/illusioner": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/illager/pillager": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/illager/ravager": {
+   "h": 128,
+   "w": 128
+  },
+  "entity/illager/vex": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/illager/vex_charging": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/illager/vindicator": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/iron_golem": {
+   "h": 128,
+   "w": 128
+  },
+  "entity/lead_knot": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/llama/brown": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/creamy": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/black": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/blue": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/brown": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/cyan": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/gray": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/green": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/light_blue": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/light_gray": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/lime": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/magenta": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/orange": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/pink": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/purple": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/red": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/trader_llama": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/white": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/decor/yellow": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/gray": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/llama/spit": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/llama/white": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/minecart": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/panda/aggressive_panda": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/panda/brown_panda": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/panda/lazy_panda": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/panda/panda": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/panda/playful_panda": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/panda/weak_panda": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/panda/worried_panda": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/parrot/parrot_blue": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/parrot/parrot_green": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/parrot/parrot_grey": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/parrot/parrot_red_blue": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/parrot/parrot_yellow_blue": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/phantom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/phantom_eyes": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/pig/pig": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/pig/pig_saddle": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/projectiles/arrow": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/projectiles/spectral_arrow": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/projectiles/tipped_arrow": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/rabbit/black": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/rabbit/brown": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/rabbit/caerbannog": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/rabbit/gold": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/rabbit/salt": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/rabbit/toast": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/rabbit/white": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/rabbit/white_splotched": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/sheep/sheep": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/sheep/sheep_fur": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/shield/base": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/border": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/bricks": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/circle": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/creeper": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/cross": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/curly_border": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/diagonal_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/diagonal_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/diagonal_up_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/diagonal_up_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/flower": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/globe": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/gradient": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/gradient_up": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/half_horizontal": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/half_horizontal_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/half_vertical": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/half_vertical_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/mojang": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/rhombus": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/skull": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/small_stripes": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/square_bottom_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/square_bottom_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/square_top_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/square_top_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/straight_cross": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_center": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_downleft": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_downright": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_left": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_middle": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_right": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/stripe_top": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/triangle_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/triangle_top": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/triangles_bottom": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield/triangles_top": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield_base": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shield_base_nopattern": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_black": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_blue": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_brown": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_cyan": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_gray": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_green": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_light_blue": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_light_gray": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_lime": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_magenta": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_orange": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_pink": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_purple": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_red": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_white": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/shulker_yellow": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/shulker/spark": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/signs/acacia": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/signs/birch": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/signs/dark_oak": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/signs/jungle": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/signs/oak": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/signs/spruce": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/silverfish": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/skeleton/skeleton": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/skeleton/stray": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/skeleton/stray_overlay": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/skeleton/wither_skeleton": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/slime/magmacube": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/slime/slime": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/snow_golem": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/spider/cave_spider": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/spider/spider": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/spider_eyes": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/squid": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/steve": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/trident": {
+   "h": 32,
+   "w": 32
+  },
+  "entity/trident_riptide": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/turtle/big_sea_turtle": {
+   "h": 64,
+   "w": 128
+  },
+  "entity/villager/profession/armorer": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession/butcher": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "partial"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/profession/cartographer": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession/cleric": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession/farmer": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/profession/fisherman": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/profession/fletcher": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/profession/leatherworker": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession/librarian": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/profession/mason": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession/nitwit": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession/shepherd": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/profession/toolsmith": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession/weaponsmith": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession_level/diamond": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession_level/emerald": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession_level/gold": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession_level/iron": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/profession_level/stone": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/type/desert": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/type/jungle": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/type/plains": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/type/savanna": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/type/snow": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/villager/type/swamp": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/type/taiga": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/villager/villager": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/wandering_trader": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/witch": {
+   "h": 128,
+   "w": 64
+  },
+  "entity/wither/wither": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/wither/wither_armor": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/wither/wither_invulnerable": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/wolf/wolf": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/wolf/wolf_angry": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/wolf/wolf_collar": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/wolf/wolf_tame": {
+   "h": 32,
+   "w": 64
+  },
+  "entity/zombie/drowned": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie/drowned_outer_layer": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie/husk": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie/zombie": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie/zombie_villager": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_pigman": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/armorer": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/butcher": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "partial"
+    }
+   },
+   "w": 64
+  },
+  "entity/zombie_villager/profession/cartographer": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/cleric": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/farmer": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/zombie_villager/profession/fisherman": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/zombie_villager/profession/fletcher": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/zombie_villager/profession/leatherworker": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/librarian": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/zombie_villager/profession/mason": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/nitwit": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/shepherd": {
+   "h": 64,
+   "mcmeta": {
+    "villager": {
+     "hat": "full"
+    }
+   },
+   "w": 64
+  },
+  "entity/zombie_villager/profession/toolsmith": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession/weaponsmith": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession_level/diamond": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession_level/emerald": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession_level/gold": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession_level/iron": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/profession_level/stone": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/type/desert": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/type/jungle": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/type/plains": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/type/savanna": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/type/snow": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/type/swamp": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/type/taiga": {
+   "h": 64,
+   "w": 64
+  },
+  "entity/zombie_villager/zombie_villager": {
+   "h": 64,
+   "w": 64
+  },
+  "environment/clouds": {
+   "h": 256,
+   "w": 256
+  },
+  "environment/end_sky": {
+   "h": 128,
+   "w": 128
+  },
+  "environment/moon_phases": {
+   "h": 64,
+   "w": 128
+  },
+  "environment/rain": {
+   "h": 256,
+   "w": 64
+  },
+  "environment/snow": {
+   "h": 256,
+   "w": 64
+  },
+  "environment/sun": {
+   "h": 32,
+   "w": 32
+  },
+  "font/accented": {
+   "h": 312,
+   "w": 144
+  },
+  "font/ascii": {
+   "h": 128,
+   "w": 128
+  },
+  "font/ascii_sga": {
+   "h": 128,
+   "w": 128
+  },
+  "font/nonlatin_european": {
+   "h": 304,
+   "w": 128
+  },
+  "font/unicode_page_00": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_01": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_02": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_03": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_04": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_05": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_06": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_07": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_09": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_0a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_0b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_0c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_0d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_0e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_0f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_10": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_11": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_12": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_13": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_14": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_15": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_16": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_17": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_18": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_19": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_1a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_1b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_1c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_1d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_1e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_1f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_20": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_21": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_22": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_23": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_24": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_25": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_26": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_27": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_28": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_29": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_2a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_2b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_2c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_2d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_2e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_2f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_30": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_31": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_32": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_33": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_34": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_35": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_36": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_37": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_38": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_39": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_3a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_3b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_3c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_3d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_3e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_3f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_40": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_41": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_42": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_43": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_44": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_45": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_46": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_47": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_48": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_49": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_4a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_4b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_4c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_4d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_4e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_4f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_50": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_51": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_52": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_53": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_54": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_55": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_56": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_57": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_58": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_59": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_5a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_5b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_5c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_5d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_5e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_5f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_60": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_61": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_62": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_63": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_64": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_65": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_66": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_67": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_68": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_69": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_6a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_6b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_6c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_6d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_6e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_6f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_70": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_71": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_72": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_73": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_74": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_75": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_76": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_77": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_78": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_79": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_7a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_7b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_7c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_7d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_7e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_7f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_80": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_81": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_82": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_83": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_84": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_85": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_86": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_87": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_88": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_89": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_8a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_8b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_8c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_8d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_8e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_8f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_90": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_91": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_92": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_93": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_94": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_95": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_96": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_97": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_98": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_99": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_9a": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_9b": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_9c": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_9d": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_9e": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_9f": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a0": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a1": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a2": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a3": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a4": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a5": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a6": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a7": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a8": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_a9": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_aa": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ab": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ac": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ad": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ae": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_af": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b0": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b1": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b2": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b3": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b4": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b5": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b6": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b7": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b8": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_b9": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ba": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_bb": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_bc": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_bd": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_be": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_bf": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c0": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c1": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c2": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c3": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c4": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c5": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c6": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c7": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c8": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_c9": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ca": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_cb": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_cc": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_cd": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ce": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_cf": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d0": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d1": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d2": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d3": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d4": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d5": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d6": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_d7": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_f9": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_fa": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_fb": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_fc": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_fd": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_fe": {
+   "h": 256,
+   "w": 256
+  },
+  "font/unicode_page_ff": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/accessibility": {
+   "h": 64,
+   "w": 32
+  },
+  "gui/advancements/backgrounds/adventure": {
+   "h": 16,
+   "w": 16
+  },
+  "gui/advancements/backgrounds/end": {
+   "h": 16,
+   "w": 16
+  },
+  "gui/advancements/backgrounds/husbandry": {
+   "h": 16,
+   "w": 16
+  },
+  "gui/advancements/backgrounds/nether": {
+   "h": 16,
+   "w": 16
+  },
+  "gui/advancements/backgrounds/stone": {
+   "h": 16,
+   "w": 16
+  },
+  "gui/advancements/tabs": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/advancements/widgets": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/advancements/window": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/bars": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/book": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/checkbox": {
+   "h": 64,
+   "w": 32
+  },
+  "gui/container/anvil": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/beacon": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/blast_furnace": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/brewing_stand": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/cartography_table": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/crafting_table": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/creative_inventory/tab_inventory": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/creative_inventory/tab_item_search": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/creative_inventory/tab_items": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/creative_inventory/tabs": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/dispenser": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/enchanting_table": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/furnace": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/generic_54": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/grindstone": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/hopper": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/horse": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/inventory": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/loom": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/shulker_box": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/smoker": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/stats_icons": {
+   "h": 128,
+   "w": 128
+  },
+  "gui/container/stonecutter": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/container/villager2": {
+   "h": 256,
+   "w": 512
+  },
+  "gui/demo_background": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/icons": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/options_background": {
+   "h": 16,
+   "w": 16
+  },
+  "gui/presets/chaos": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/presets/delight": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/presets/drought": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/presets/isles": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/presets/luck": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/presets/madness": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/presets/water": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/recipe_book": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/recipe_button": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/resource_packs": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/server_selection": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/spectator_widgets": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/stream_indicator": {
+   "h": 64,
+   "w": 16
+  },
+  "gui/title/background/panorama_0": {
+   "h": 1024,
+   "w": 1024
+  },
+  "gui/title/background/panorama_1": {
+   "h": 1024,
+   "w": 1024
+  },
+  "gui/title/background/panorama_2": {
+   "h": 1024,
+   "w": 1024
+  },
+  "gui/title/background/panorama_3": {
+   "h": 1024,
+   "w": 1024
+  },
+  "gui/title/background/panorama_4": {
+   "h": 1024,
+   "w": 1024
+  },
+  "gui/title/background/panorama_5": {
+   "h": 1024,
+   "w": 1024
+  },
+  "gui/title/background/panorama_overlay": {
+   "h": 128,
+   "w": 16
+  },
+  "gui/title/edition": {
+   "h": 16,
+   "w": 128
+  },
+  "gui/title/minecraft": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/title/mojang": {
+   "h": 512,
+   "w": 512
+  },
+  "gui/toasts": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/widgets": {
+   "h": 256,
+   "w": 256
+  },
+  "gui/world_selection": {
+   "h": 256,
+   "w": 256
+  },
+  "item/acacia_boat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/acacia_door": {
+   "h": 16,
+   "w": 16
+  },
+  "item/acacia_sign": {
+   "h": 16,
+   "w": 16
+  },
+  "item/apple": {
+   "h": 16,
+   "w": 16
+  },
+  "item/armor_stand": {
+   "h": 16,
+   "w": 16
+  },
+  "item/arrow": {
+   "h": 16,
+   "w": 16
+  },
+  "item/baked_potato": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bamboo": {
+   "h": 16,
+   "w": 16
+  },
+  "item/barrier": {
+   "h": 16,
+   "w": 16
+  },
+  "item/beef": {
+   "h": 16,
+   "w": 16
+  },
+  "item/beetroot": {
+   "h": 16,
+   "w": 16
+  },
+  "item/beetroot_seeds": {
+   "h": 16,
+   "w": 16
+  },
+  "item/beetroot_soup": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bell": {
+   "h": 16,
+   "w": 16
+  },
+  "item/birch_boat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/birch_door": {
+   "h": 16,
+   "w": 16
+  },
+  "item/birch_sign": {
+   "h": 16,
+   "w": 16
+  },
+  "item/black_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/blaze_powder": {
+   "h": 16,
+   "w": 16
+  },
+  "item/blaze_rod": {
+   "h": 16,
+   "w": 16
+  },
+  "item/blue_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bone": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bone_meal": {
+   "h": 16,
+   "w": 16
+  },
+  "item/book": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bow": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bow_pulling_0": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bow_pulling_1": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bow_pulling_2": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bowl": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bread": {
+   "h": 16,
+   "w": 16
+  },
+  "item/brewing_stand": {
+   "h": 16,
+   "w": 16
+  },
+  "item/brick": {
+   "h": 16,
+   "w": 16
+  },
+  "item/broken_elytra": {
+   "h": 16,
+   "w": 16
+  },
+  "item/brown_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cake": {
+   "h": 16,
+   "w": 16
+  },
+  "item/campfire": {
+   "h": 16,
+   "w": 16
+  },
+  "item/carrot": {
+   "h": 16,
+   "w": 16
+  },
+  "item/carrot_on_a_stick": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cauldron": {
+   "h": 16,
+   "w": 16
+  },
+  "item/chainmail_boots": {
+   "h": 16,
+   "w": 16
+  },
+  "item/chainmail_chestplate": {
+   "h": 16,
+   "w": 16
+  },
+  "item/chainmail_helmet": {
+   "h": 16,
+   "w": 16
+  },
+  "item/chainmail_leggings": {
+   "h": 16,
+   "w": 16
+  },
+  "item/charcoal": {
+   "h": 16,
+   "w": 16
+  },
+  "item/chest_minecart": {
+   "h": 16,
+   "w": 16
+  },
+  "item/chicken": {
+   "h": 16,
+   "w": 16
+  },
+  "item/chorus_fruit": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clay_ball": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_00": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_01": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_02": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_03": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_04": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_05": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_06": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_07": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_08": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_09": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_10": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_11": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_12": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_13": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_14": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_15": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_16": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_17": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_18": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_19": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_20": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_21": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_22": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_23": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_24": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_25": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_26": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_27": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_28": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_29": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_30": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_31": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_32": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_33": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_34": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_35": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_36": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_37": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_38": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_39": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_40": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_41": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_42": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_43": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_44": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_45": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_46": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_47": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_48": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_49": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_50": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_51": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_52": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_53": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_54": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_55": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_56": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_57": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_58": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_59": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_60": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_61": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_62": {
+   "h": 16,
+   "w": 16
+  },
+  "item/clock_63": {
+   "h": 16,
+   "w": 16
+  },
+  "item/coal": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cocoa_beans": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cod": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cod_bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/command_block_minecart": {
+   "h": 16,
+   "w": 16
+  },
+  "item/comparator": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_00": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_01": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_02": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_03": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_04": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_05": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_06": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_07": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_08": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_09": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_10": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_11": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_12": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_13": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_14": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_15": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_16": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_17": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_18": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_19": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_20": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_21": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_22": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_23": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_24": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_25": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_26": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_27": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_28": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_29": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_30": {
+   "h": 16,
+   "w": 16
+  },
+  "item/compass_31": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cooked_beef": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cooked_chicken": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cooked_cod": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cooked_mutton": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cooked_porkchop": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cooked_rabbit": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cooked_salmon": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cookie": {
+   "h": 16,
+   "w": 16
+  },
+  "item/creeper_banner_pattern": {
+   "h": 16,
+   "w": 16
+  },
+  "item/crossbow_arrow": {
+   "h": 16,
+   "w": 16
+  },
+  "item/crossbow_firework": {
+   "h": 16,
+   "w": 16
+  },
+  "item/crossbow_pulling_0": {
+   "h": 16,
+   "w": 16
+  },
+  "item/crossbow_pulling_1": {
+   "h": 16,
+   "w": 16
+  },
+  "item/crossbow_pulling_2": {
+   "h": 16,
+   "w": 16
+  },
+  "item/crossbow_standby": {
+   "h": 16,
+   "w": 16
+  },
+  "item/cyan_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/dark_oak_boat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/dark_oak_door": {
+   "h": 16,
+   "w": 16
+  },
+  "item/dark_oak_sign": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_axe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_boots": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_chestplate": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_helmet": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_hoe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_horse_armor": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_leggings": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_pickaxe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_shovel": {
+   "h": 16,
+   "w": 16
+  },
+  "item/diamond_sword": {
+   "h": 16,
+   "w": 16
+  },
+  "item/dragon_breath": {
+   "h": 16,
+   "w": 16
+  },
+  "item/dried_kelp": {
+   "h": 16,
+   "w": 16
+  },
+  "item/egg": {
+   "h": 16,
+   "w": 16
+  },
+  "item/elytra": {
+   "h": 16,
+   "w": 16
+  },
+  "item/emerald": {
+   "h": 16,
+   "w": 16
+  },
+  "item/empty_armor_slot_boots": {
+   "h": 16,
+   "w": 16
+  },
+  "item/empty_armor_slot_chestplate": {
+   "h": 16,
+   "w": 16
+  },
+  "item/empty_armor_slot_helmet": {
+   "h": 16,
+   "w": 16
+  },
+  "item/empty_armor_slot_leggings": {
+   "h": 16,
+   "w": 16
+  },
+  "item/empty_armor_slot_shield": {
+   "h": 16,
+   "w": 16
+  },
+  "item/enchanted_book": {
+   "h": 16,
+   "w": 16
+  },
+  "item/end_crystal": {
+   "h": 16,
+   "w": 16
+  },
+  "item/ender_eye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/ender_pearl": {
+   "h": 16,
+   "w": 16
+  },
+  "item/experience_bottle": {
+   "h": 16,
+   "w": 16
+  },
+  "item/feather": {
+   "h": 16,
+   "w": 16
+  },
+  "item/fermented_spider_eye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/filled_map": {
+   "h": 16,
+   "w": 16
+  },
+  "item/filled_map_markings": {
+   "h": 16,
+   "w": 16
+  },
+  "item/fire_charge": {
+   "h": 16,
+   "w": 16
+  },
+  "item/firework_rocket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/firework_star": {
+   "h": 16,
+   "w": 16
+  },
+  "item/firework_star_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "item/fishing_rod": {
+   "h": 16,
+   "w": 16
+  },
+  "item/fishing_rod_cast": {
+   "h": 16,
+   "w": 16
+  },
+  "item/flint": {
+   "h": 16,
+   "w": 16
+  },
+  "item/flint_and_steel": {
+   "h": 16,
+   "w": 16
+  },
+  "item/flower_banner_pattern": {
+   "h": 16,
+   "w": 16
+  },
+  "item/flower_pot": {
+   "h": 16,
+   "w": 16
+  },
+  "item/furnace_minecart": {
+   "h": 16,
+   "w": 16
+  },
+  "item/ghast_tear": {
+   "h": 16,
+   "w": 16
+  },
+  "item/glass_bottle": {
+   "h": 16,
+   "w": 16
+  },
+  "item/glistering_melon_slice": {
+   "h": 16,
+   "w": 16
+  },
+  "item/globe_banner_pattern": {
+   "h": 16,
+   "w": 16
+  },
+  "item/glowstone_dust": {
+   "h": 16,
+   "w": 16
+  },
+  "item/gold_ingot": {
+   "h": 16,
+   "w": 16
+  },
+  "item/gold_nugget": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_apple": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_axe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_boots": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_carrot": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_chestplate": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_helmet": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_hoe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_horse_armor": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_leggings": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_pickaxe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_shovel": {
+   "h": 16,
+   "w": 16
+  },
+  "item/golden_sword": {
+   "h": 16,
+   "w": 16
+  },
+  "item/gray_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/green_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/gunpowder": {
+   "h": 16,
+   "w": 16
+  },
+  "item/heart_of_the_sea": {
+   "h": 16,
+   "w": 16
+  },
+  "item/hopper": {
+   "h": 16,
+   "w": 16
+  },
+  "item/hopper_minecart": {
+   "h": 16,
+   "w": 16
+  },
+  "item/ink_sac": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_axe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_boots": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_chestplate": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_door": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_helmet": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_hoe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_horse_armor": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_ingot": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_leggings": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_nugget": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_pickaxe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_shovel": {
+   "h": 16,
+   "w": 16
+  },
+  "item/iron_sword": {
+   "h": 16,
+   "w": 16
+  },
+  "item/item_frame": {
+   "h": 16,
+   "w": 16
+  },
+  "item/jungle_boat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/jungle_door": {
+   "h": 16,
+   "w": 16
+  },
+  "item/jungle_sign": {
+   "h": 16,
+   "w": 16
+  },
+  "item/kelp": {
+   "h": 16,
+   "w": 16
+  },
+  "item/knowledge_book": {
+   "h": 16,
+   "w": 16
+  },
+  "item/lantern": {
+   "h": 16,
+   "w": 16
+  },
+  "item/lapis_lazuli": {
+   "h": 16,
+   "w": 16
+  },
+  "item/lava_bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/lead": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_boots": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_boots_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_chestplate": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_chestplate_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_helmet": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_helmet_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_horse_armor": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_leggings": {
+   "h": 16,
+   "w": 16
+  },
+  "item/leather_leggings_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "item/light_blue_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/light_gray_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/lime_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/lingering_potion": {
+   "h": 16,
+   "w": 16
+  },
+  "item/magenta_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/magma_cream": {
+   "h": 16,
+   "w": 16
+  },
+  "item/map": {
+   "h": 16,
+   "w": 16
+  },
+  "item/melon_seeds": {
+   "h": 16,
+   "w": 16
+  },
+  "item/melon_slice": {
+   "h": 16,
+   "w": 16
+  },
+  "item/milk_bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/minecart": {
+   "h": 16,
+   "w": 16
+  },
+  "item/mojang_banner_pattern": {
+   "h": 16,
+   "w": 16
+  },
+  "item/mushroom_stew": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_11": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_13": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_blocks": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_cat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_chirp": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_far": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_mall": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_mellohi": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_stal": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_strad": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_wait": {
+   "h": 16,
+   "w": 16
+  },
+  "item/music_disc_ward": {
+   "h": 16,
+   "w": 16
+  },
+  "item/mutton": {
+   "h": 16,
+   "w": 16
+  },
+  "item/name_tag": {
+   "h": 16,
+   "w": 16
+  },
+  "item/nautilus_shell": {
+   "h": 16,
+   "w": 16
+  },
+  "item/nether_brick": {
+   "h": 16,
+   "w": 16
+  },
+  "item/nether_star": {
+   "h": 16,
+   "w": 16
+  },
+  "item/nether_wart": {
+   "h": 16,
+   "w": 16
+  },
+  "item/oak_boat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/oak_door": {
+   "h": 16,
+   "w": 16
+  },
+  "item/oak_sign": {
+   "h": 16,
+   "w": 16
+  },
+  "item/orange_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/painting": {
+   "h": 16,
+   "w": 16
+  },
+  "item/paper": {
+   "h": 16,
+   "w": 16
+  },
+  "item/phantom_membrane": {
+   "h": 16,
+   "w": 16
+  },
+  "item/pink_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/poisonous_potato": {
+   "h": 16,
+   "w": 16
+  },
+  "item/popped_chorus_fruit": {
+   "h": 16,
+   "w": 16
+  },
+  "item/porkchop": {
+   "h": 16,
+   "w": 16
+  },
+  "item/potato": {
+   "h": 16,
+   "w": 16
+  },
+  "item/potion": {
+   "h": 16,
+   "w": 16
+  },
+  "item/potion_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "item/prismarine_crystals": {
+   "h": 16,
+   "w": 16
+  },
+  "item/prismarine_shard": {
+   "h": 16,
+   "w": 16
+  },
+  "item/pufferfish": {
+   "h": 16,
+   "w": 16
+  },
+  "item/pufferfish_bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/pumpkin_pie": {
+   "h": 16,
+   "w": 16
+  },
+  "item/pumpkin_seeds": {
+   "h": 16,
+   "w": 16
+  },
+  "item/purple_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/quartz": {
+   "h": 16,
+   "w": 16
+  },
+  "item/rabbit": {
+   "h": 16,
+   "w": 16
+  },
+  "item/rabbit_foot": {
+   "h": 16,
+   "w": 16
+  },
+  "item/rabbit_hide": {
+   "h": 16,
+   "w": 16
+  },
+  "item/rabbit_stew": {
+   "h": 16,
+   "w": 16
+  },
+  "item/red_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/redstone": {
+   "h": 16,
+   "w": 16
+  },
+  "item/repeater": {
+   "h": 16,
+   "w": 16
+  },
+  "item/rotten_flesh": {
+   "h": 16,
+   "w": 16
+  },
+  "item/ruby": {
+   "h": 16,
+   "w": 16
+  },
+  "item/saddle": {
+   "h": 16,
+   "w": 16
+  },
+  "item/salmon": {
+   "h": 16,
+   "w": 16
+  },
+  "item/salmon_bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/scute": {
+   "h": 16,
+   "w": 16
+  },
+  "item/sea_pickle": {
+   "h": 16,
+   "w": 16
+  },
+  "item/seagrass": {
+   "h": 16,
+   "w": 16
+  },
+  "item/shears": {
+   "h": 16,
+   "w": 16
+  },
+  "item/shulker_shell": {
+   "h": 16,
+   "w": 16
+  },
+  "item/skull_banner_pattern": {
+   "h": 16,
+   "w": 16
+  },
+  "item/slime_ball": {
+   "h": 16,
+   "w": 16
+  },
+  "item/snowball": {
+   "h": 16,
+   "w": 16
+  },
+  "item/spawn_egg": {
+   "h": 16,
+   "w": 16
+  },
+  "item/spawn_egg_overlay": {
+   "h": 16,
+   "w": 16
+  },
+  "item/spectral_arrow": {
+   "h": 16,
+   "w": 16
+  },
+  "item/spider_eye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/splash_potion": {
+   "h": 16,
+   "w": 16
+  },
+  "item/spruce_boat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/spruce_door": {
+   "h": 16,
+   "w": 16
+  },
+  "item/spruce_sign": {
+   "h": 16,
+   "w": 16
+  },
+  "item/stick": {
+   "h": 16,
+   "w": 16
+  },
+  "item/stone_axe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/stone_hoe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/stone_pickaxe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/stone_shovel": {
+   "h": 16,
+   "w": 16
+  },
+  "item/stone_sword": {
+   "h": 16,
+   "w": 16
+  },
+  "item/string": {
+   "h": 16,
+   "w": 16
+  },
+  "item/structure_void": {
+   "h": 16,
+   "w": 16
+  },
+  "item/sugar": {
+   "h": 16,
+   "w": 16
+  },
+  "item/sugar_cane": {
+   "h": 16,
+   "w": 16
+  },
+  "item/suspicious_stew": {
+   "h": 16,
+   "w": 16
+  },
+  "item/sweet_berries": {
+   "h": 16,
+   "w": 16
+  },
+  "item/tipped_arrow_base": {
+   "h": 16,
+   "w": 16
+  },
+  "item/tipped_arrow_head": {
+   "h": 16,
+   "w": 16
+  },
+  "item/tnt_minecart": {
+   "h": 16,
+   "w": 16
+  },
+  "item/totem_of_undying": {
+   "h": 16,
+   "w": 16
+  },
+  "item/trident": {
+   "h": 16,
+   "w": 16
+  },
+  "item/tropical_fish": {
+   "h": 16,
+   "w": 16
+  },
+  "item/tropical_fish_bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/turtle_egg": {
+   "h": 16,
+   "w": 16
+  },
+  "item/turtle_helmet": {
+   "h": 16,
+   "w": 16
+  },
+  "item/water_bucket": {
+   "h": 16,
+   "w": 16
+  },
+  "item/wheat": {
+   "h": 16,
+   "w": 16
+  },
+  "item/wheat_seeds": {
+   "h": 16,
+   "w": 16
+  },
+  "item/white_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "item/wooden_axe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/wooden_hoe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/wooden_pickaxe": {
+   "h": 16,
+   "w": 16
+  },
+  "item/wooden_shovel": {
+   "h": 16,
+   "w": 16
+  },
+  "item/wooden_sword": {
+   "h": 16,
+   "w": 16
+  },
+  "item/writable_book": {
+   "h": 16,
+   "w": 16
+  },
+  "item/written_book": {
+   "h": 16,
+   "w": 16
+  },
+  "item/yellow_dye": {
+   "h": 16,
+   "w": 16
+  },
+  "map/map_background": {
+   "h": 64,
+   "w": 64
+  },
+  "map/map_icons": {
+   "h": 128,
+   "w": 128
+  },
+  "misc/enchanted_item_glint": {
+   "h": 64,
+   "mcmeta": {
+    "texture": {
+     "blur": true
+    }
+   },
+   "w": 64
+  },
+  "misc/forcefield": {
+   "h": 16,
+   "w": 16
+  },
+  "misc/pumpkinblur": {
+   "h": 256,
+   "mcmeta": {
+    "texture": {
+     "blur": true
+    }
+   },
+   "w": 256
+  },
+  "misc/shadow": {
+   "h": 64,
+   "mcmeta": {
+    "texture": {
+     "clamp": true
+    }
+   },
+   "w": 64
+  },
+  "misc/underwater": {
+   "h": 16,
+   "w": 16
+  },
+  "misc/unknown_pack": {
+   "h": 128,
+   "w": 128
+  },
+  "misc/unknown_server": {
+   "h": 128,
+   "w": 128
+  },
+  "misc/vignette": {
+   "h": 256,
+   "mcmeta": {
+    "texture": {
+     "blur": true
+    }
+   },
+   "w": 256
+  },
+  "mob_effect/absorption": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/bad_omen": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/blindness": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/conduit_power": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/dolphins_grace": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/fire_resistance": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/glowing": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/haste": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/health_boost": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/hero_of_the_village": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/hunger": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/instant_damage": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/instant_health": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/invisibility": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/jump_boost": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/levitation": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/luck": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/mining_fatigue": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/nausea": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/night_vision": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/poison": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/regeneration": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/resistance": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/saturation": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/slow_falling": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/slowness": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/speed": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/strength": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/unluck": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/water_breathing": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/weakness": {
+   "h": 18,
+   "w": 18
+  },
+  "mob_effect/wither": {
+   "h": 18,
+   "w": 18
+  },
+  "models/armor/chainmail_layer_1": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/chainmail_layer_2": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/diamond_layer_1": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/diamond_layer_2": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/gold_layer_1": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/gold_layer_2": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/iron_layer_1": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/iron_layer_2": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/leather_layer_1": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/leather_layer_1_overlay": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/leather_layer_2": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/leather_layer_2_overlay": {
+   "h": 32,
+   "w": 64
+  },
+  "models/armor/turtle_layer_1": {
+   "h": 32,
+   "w": 64
+  },
+  "painting/alban": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/aztec": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/aztec2": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/back": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/bomb": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/burning_skull": {
+   "h": 64,
+   "w": 64
+  },
+  "painting/bust": {
+   "h": 32,
+   "w": 32
+  },
+  "painting/courbet": {
+   "h": 16,
+   "w": 32
+  },
+  "painting/creebet": {
+   "h": 16,
+   "w": 32
+  },
+  "painting/donkey_kong": {
+   "h": 48,
+   "w": 64
+  },
+  "painting/fighters": {
+   "h": 32,
+   "w": 64
+  },
+  "painting/graham": {
+   "h": 32,
+   "w": 16
+  },
+  "painting/kebab": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/match": {
+   "h": 32,
+   "w": 32
+  },
+  "painting/pigscene": {
+   "h": 64,
+   "w": 64
+  },
+  "painting/plant": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/pointer": {
+   "h": 64,
+   "w": 64
+  },
+  "painting/pool": {
+   "h": 16,
+   "w": 32
+  },
+  "painting/sea": {
+   "h": 16,
+   "w": 32
+  },
+  "painting/skeleton": {
+   "h": 48,
+   "w": 64
+  },
+  "painting/skull_and_roses": {
+   "h": 32,
+   "w": 32
+  },
+  "painting/stage": {
+   "h": 32,
+   "w": 32
+  },
+  "painting/sunset": {
+   "h": 16,
+   "w": 32
+  },
+  "painting/void": {
+   "h": 32,
+   "w": 32
+  },
+  "painting/wanderer": {
+   "h": 32,
+   "w": 16
+  },
+  "painting/wasteland": {
+   "h": 16,
+   "w": 16
+  },
+  "painting/wither": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/angry": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/big_smoke_0": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_1": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_10": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_11": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_2": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_3": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_4": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_5": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_6": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_7": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_8": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/big_smoke_9": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/bubble": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/bubble_pop_0": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/bubble_pop_1": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/bubble_pop_2": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/bubble_pop_3": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/bubble_pop_4": {
+   "h": 16,
+   "w": 16
+  },
+  "particle/critical_hit": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/damage": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/drip_fall": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/drip_hang": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/drip_land": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_0": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_1": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_2": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_3": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_4": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_5": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_6": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/effect_7": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/enchanted_hit": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/explosion_0": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_1": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_10": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_11": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_12": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_13": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_14": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_15": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_2": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_3": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_4": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_5": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_6": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_7": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_8": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/explosion_9": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/flame": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/flash": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/footprint": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_0": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_1": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_2": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_3": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_4": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_5": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_6": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/generic_7": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glint": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_0": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_1": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_2": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_3": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_4": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_5": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_6": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/glitter_7": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/heart": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/lava": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/nautilus": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/note": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_a": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_b": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_c": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_d": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_e": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_f": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_g": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_h": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_i": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_j": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_k": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_l": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_m": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_n": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_o": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_p": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_q": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_r": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_s": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_t": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_u": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_v": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_w": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_x": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_y": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sga_z": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_0": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_1": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_2": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_3": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_4": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_5": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_6": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spark_7": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_0": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_1": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_2": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_3": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_4": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_5": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_6": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/spell_7": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/splash_0": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/splash_1": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/splash_2": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/splash_3": {
+   "h": 8,
+   "w": 8
+  },
+  "particle/sweep_0": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/sweep_1": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/sweep_2": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/sweep_3": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/sweep_4": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/sweep_5": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/sweep_6": {
+   "h": 32,
+   "w": 32
+  },
+  "particle/sweep_7": {
+   "h": 32,
+   "w": 32
+  }
+ },
+ "version": "1.14.4"
+}
