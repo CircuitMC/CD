@@ -357,7 +357,9 @@ def redstone_block(ctx):
 # ------------------------------------------------------------------ registration
 reg("block/redstone_dust_dot", dust_dot)
 reg("block/redstone_dust_line0", bind(dust_line, True))
-reg("block/redstone_dust_line1", bind(dust_line, False))
+# Both lines run north-south (vertical in the texture): the game's wire models use
+# line1 for the east/west pieces and rotate the model, not the texture.
+reg("block/redstone_dust_line1", bind(dust_line, True))
 reg("block/redstone_dust_overlay", dust_overlay)
 reg("block/rail", rail_base)
 reg("block/rail_corner", rail_corner)

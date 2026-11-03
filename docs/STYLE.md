@@ -119,6 +119,8 @@ static_file("minecraft/optifine/ctm/x/x.properties", text)   # non-image files
 - Older layouts of the same path (used by older game versions) are registered as
   `"<path>@<w>x<h>"` (frame size in texels). Paths that only existed in older versions are registered
   under their old name (see `data/old_only.json`, `data/aliases.json`, `generator/textures/legacy/`).
+  A same-size texture whose meaning differs in some version ranges is registered as `"<path>#<tag>"`
+  (tags are listed per version group in `build.py`, e.g. `pre-1.19.3`).
 - Native size and frame count default to the vanilla interface data; set `frames=` to choose your own
   animation length (the strip height is computed for you). `size=` is required for new paths.
 - Functional vanilla `.mcmeta` sections (`texture`, `gui`, `villager`, `palette`) are written for you;

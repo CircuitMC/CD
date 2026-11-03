@@ -193,9 +193,17 @@ def bow(ctx, pull=-1):
     return compose(ctx, s, limbs, grip, *bow_arrow(ctx, q, q + BOW_ARROW))
 
 
-register("item/bow", lambda ctx: bow(ctx))
+def mirrored(tex):
+    """Mirror left-right. Bows and crossbows face the TOP-LEFT: the game's held-item
+    transforms for them turn that direction forward (tools/rods face top-right)."""
+    for attr in ("color", "alpha", "height", "smooth", "f0", "metal", "porosity", "sss", "emissive"):
+        setattr(tex, attr, getattr(tex, attr)[:, ::-1].copy())
+    return tex
+
+
+register("item/bow", lambda ctx: mirrored(bow(ctx)))
 for _i in range(3):
-    register(f"item/bow_pulling_{_i}", lambda ctx, i=_i: bow(ctx, i))
+    register(f"item/bow_pulling_{_i}", lambda ctx, i=_i: mirrored(bow(ctx, i)))
 
 
 # ------------------------------------------------------------- crossbow
@@ -233,11 +241,11 @@ def crossbow(ctx, state):
     return compose(ctx, *layers)
 
 
-register("item/crossbow_standby", lambda ctx: crossbow(ctx, "standby"))
-register("item/crossbow_arrow", lambda ctx: crossbow(ctx, "arrow"))
-register("item/crossbow_firework", lambda ctx: crossbow(ctx, "firework"))
+register("item/crossbow_standby", lambda ctx: mirrored(crossbow(ctx, "standby")))
+register("item/crossbow_arrow", lambda ctx: mirrored(crossbow(ctx, "arrow")))
+register("item/crossbow_firework", lambda ctx: mirrored(crossbow(ctx, "firework")))
 for _i in range(3):
-    register(f"item/crossbow_pulling_{_i}", lambda ctx, i=_i: crossbow(ctx, i))
+    register(f"item/crossbow_pulling_{_i}", lambda ctx, i=_i: mirrored(crossbow(ctx, i)))
 
 
 # ---------------------------------------------------------------- arrow

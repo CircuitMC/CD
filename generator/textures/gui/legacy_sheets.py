@@ -215,6 +215,17 @@ def _creative_tabs(c, ctx):
 register("gui/container/creative_inventory/tabs", sheet(_creative_tabs))
 
 
+def _creative_tabs_old(c, ctx):
+    """1.13-1.19.2 layout: 28x32 cells at u = column * 28 (served by the per-version packs)."""
+    for col in range(7):
+        n = col + 1
+        for y, st in ((0, "top_unselected"), (32, "top_selected"), (64, "bottom_unselected"), (96, "bottom_selected")):
+            put(c, ctx, SP + f"container/creative_inventory/tab_{st}_{n}", 28 * col, y, 28, 32)
+
+
+register("gui/container/creative_inventory/tabs#pre-1.19.3", sheet(_creative_tabs_old), size=(256, 256))
+
+
 def _stats_icons(c, ctx):
     put(c, ctx, SP + "container/slot", 0, 0)
     put(c, ctx, SP + "statistics/sort_down", 18, 0)

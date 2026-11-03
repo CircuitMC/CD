@@ -9,14 +9,15 @@ Outputs dist/<res>x/<pack>/ folders and dist/<pack>-<version>-<res>x.zip.
 Hand-drawn PNGs in overrides/<res>x/ (or overrides/16x/, upscaled) win over
 generated textures with the same path.
 
-Version support (full builds, i.e. without --area/--only):
-  * CircuitMC-Default         1.13 -> 26.x. The base folder uses the texture
-    layout of <= 1.20.1 for paths whose size changed later; pack overlays
-    (read by 1.20.2+) carry the newer layouts. Old texture names are filled
-    from data/aliases.json so renamed textures still resolve.
-  * CircuitMC-Default-Legacy  1.7 -> 1.12 (blocks/, items/ era names).
-Generators are written for 26.3 paths; a different layout of the same path is
-registered as "<path>@<w>x<h>".
+Version support (full builds, i.e. without --area/--only): one pack per game
+version range (GROUPS below), each laid out exactly like the vanilla versions
+it serves; the 1.20.2+ pack additionally uses pack overlays for the layout
+changes between 1.20.2 and 26.x. Old texture names resolve through
+data/aliases.json. Generators are written for 26.3 paths; another layout of the
+same path is registered as "<path>@<w>x<h>", and a same-size variant needed by
+some ranges as "<path>#<tag>" (tags per group below).
+Each generator is rendered once per resolution into dist/<res>x/_cache and
+hard-linked into every pack that uses it.
 """
 import argparse
 import os
@@ -45,33 +46,52 @@ OVERRIDES = ROOT / "overrides"
 VERSION = "0.3.1"
 VANILLA = "26.3"
 
-# Sampled versions and their resource pack formats.
-MODERN = [("1.13.2", 4), ("1.14.4", 4), ("1.16.5", 6), ("1.17.1", 7), ("1.19.2", 9), ("1.20.1", 15),
-          ("1.20.4", 22), ("1.21.1", 34), ("1.21.4", 46), ("1.21.8", 64), ("26.3", 97)]
-LEGACY = [("1.7.10", 1), ("1.8.9", 1), ("1.12.2", 3)]
+VERSION = "0.4.0"
+VANILLA = "26.3"
+
+
+@dataclass
+class Group:
+    gid: str               # short id, used in folder and file names
+    label: str             # human readable version range
+    versions: list         # sampled vanilla versions (indexes in data/), oldest first
+    formats: list          # resource pack format of each sampled version
+    pack_format: int       # value written to pack.mcmeta
+    tags: list = field(default_factory=list)  # variant tags tried before the plain key
+    overlays: bool = False  # 1.20.2+: newer layouts go to pack overlays
+
+
+GROUPS = [
+    Group("1.7", "1.7.10", ["1.7.10"], [1], 1, ["pre-1.13", "pre-1.19.3"]),
+    Group("1.8-1.12", "1.8–1.12.2", ["1.8.9", "1.10.2", "1.12.2"], [1, 2, 3], 3, ["pre-1.13", "pre-1.19.3"]),
+    Group("1.13", "1.13–1.13.2", ["1.13.2"], [4], 4, ["pre-1.19.3"]),
+    Group("1.14-1.15", "1.14–1.15.2", ["1.14.4"], [4], 4, ["pre-1.19.3"]),
+    Group("1.16", "1.16–1.16.5", ["1.16.5"], [6], 6, ["pre-1.19.3"]),
+    Group("1.17-1.19.2", "1.17–1.19.2", ["1.17.1", "1.19.2"], [7, 9], 9, ["pre-1.19.3"]),
+    Group("1.19.3-1.19.4", "1.19.3–1.19.4", ["1.19.4"], [13], 13),
+    Group("1.20-1.20.1", "1.20–1.20.1", ["1.20.1"], [15], 15),
+    Group("1.20.2+", "1.20.2–26.x", ["1.20.4", "1.21.1", "1.21.4", "1.21.8", "26.3"], [22, 34, 46, 64, 97], 18,
+          overlays=True),
+]
+MAIN = GROUPS[-1].gid
 OVERLAY_MIN = 18      # first format that understands pack overlays (1.20.2)
 OPEN_MAX = 999        # "and every later version"
-# 26.x rejects ranged ("multi-version") metadata whose minimum is below 15, so the
-# declared minimum is 15 (1.20); 1.13-1.19 still load the pack after the
-# "made for another version" prompt.
-MIN_FORMAT = 15
+ADDON_FORMAT = 15     # add-ons: one pack for 1.13+ (26.x rejects ranged metadata below 15)
 
-PACKS = {
-    "core": dict(dir="CircuitMC-Default", title="CircuitMC Default",
-                 blurb="Original art · CC BY-NC-SA 4.0"),
-    "legacy": dict(dir="CircuitMC-Default-Legacy", title="CircuitMC Default (1.7–1.12)",
-                   blurb="Original art · CC BY-NC-SA 4.0"),
-    "redstone_power": dict(dir="CircuitMC-Redstone-Power", title="CircuitMC Redstone Power",
-                           blurb="Shows signal strength on redstone dust"),
-}
+PACKS = {f"core-{g.gid}": dict(dir=f"CircuitMC-Default-mc{g.gid}", title="CircuitMC Default",
+                               blurb=f"Minecraft {g.label} · CC BY-NC-SA 4.0", group=g) for g in GROUPS}
+PACKS["redstone_power"] = dict(dir="CircuitMC-Redstone-Power", title="CircuitMC Redstone Power",
+                               blurb="Shows signal strength on redstone dust", group=None)
+MAIN_PACK = f"core-{MAIN}"
 
 MAX_FRAME_PIXELS = 4096 * 4096
 MAX_STRIP_HEIGHT = 16384
 COPY_META = ("texture", "gui", "villager", "palette")  # functional vanilla mcmeta sections
 LICENSE_FILES = ["LICENSE", "COMMERCIAL.md", "NOTICE.md"]
 
+ALL_VERSIONS = [v for g in GROUPS for v in g.versions]
 INDEXES = {v: json.loads((ROOT / "data" / f"vanilla-{v}.json").read_text())["textures"]
-           for v, _ in LEGACY + MODERN if (ROOT / "data" / f"vanilla-{v}.json").exists()}
+           for v in ALL_VERSIONS if (ROOT / "data" / f"vanilla-{v}.json").exists()}
 VANILLA_INDEX = INDEXES[VANILLA]
 _alias_file = ROOT / "data" / "aliases.json"
 _alias_data = json.loads(_alias_file.read_text()) if _alias_file.exists() else {}
@@ -109,7 +129,7 @@ def frame_layout(entry):
 
 def index_entry(path):
     """Newest vanilla index entry for a path (26.3 first, then older)."""
-    for v, _ in reversed(LEGACY + MODERN):
+    for v in reversed(ALL_VERSIONS):
         e = INDEXES.get(v, {}).get(path)
         if e:
             return e
@@ -118,7 +138,7 @@ def index_entry(path):
 
 def native_layout(spec):
     """(frame_w, frame_h, frames) in texels for a registry entry."""
-    base = spec.path.split("@")[0]
+    base = spec.path.split("@")[0].split("#")[0]
     entry = index_entry(base)
     if spec.size:
         w, h = spec.size
@@ -161,22 +181,65 @@ class Target:
     meta: dict = field(default_factory=dict)  # functional vanilla mcmeta for this layout
 
 
-def target_root(res, t):
-    root = DIST / f"{res}x" / PACKS[t.pack]["dir"]
-    return root / t.sub if t.sub else root
+def pack_root(res, pack):
+    return DIST / f"{res}x" / PACKS[pack]["dir"]
+
+
+def cache_name(key):
+    return key.strip("/").replace("/", "__").replace("#", "~") 
 
 
 def render(job):
-    t, res = job
-    spec = TEXTURES[t.key]
-    root = target_root(res, t)
-    target = out_file(root, t.path)
-    target.parent.mkdir(parents=True, exist_ok=True)
+    """Render one registry key into the per-resolution cache. Returns (key, info, error)."""
+    key, res = job
+    spec = TEXTURES[key]
+    cache = DIST / f"{res}x" / "_cache"
+    base = cache / cache_name(key)
     try:
         w, h, frames = native_layout(spec)
-        pbr = default_pbr(t.path) if spec.pbr is None else spec.pbr
+        pbr = default_pbr(key.split("@")[0].split("#")[0]) if spec.pbr is None else spec.pbr
+        s = pick_scale(res, w, h, frames)
+        layers = [[], [], []]
+        for i in range(frames):
+            ctx = Ctx(key.split("@")[0].split("#")[0], w, h, s, frame=i, frames=frames)
+            out = spec.fn(ctx)
+            if isinstance(out, list):
+                out = out[i]
+            for k, arr in enumerate(encode(out)):
+                layers[k].append(arr)
+        stacked = [np.concatenate(l, 0) for l in layers]
+        Image.fromarray(stacked[0], "RGBA").save(f"{base}.png", compress_level=6)
+        if pbr:
+            Image.fromarray(stacked[1], "RGBA").save(f"{base}_n.png", compress_level=6)
+            Image.fromarray(stacked[2], "RGBA").save(f"{base}_s.png", compress_level=6)
+        return key, dict(w=w, h=h, frames=frames, s=s, pbr=pbr), None
+    except Exception:
+        return key, None, traceback.format_exc()
+
+
+def _link(src, dst):
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if dst.exists():
+        dst.unlink()
+    try:
+        os.link(src, dst)
+    except OSError:
+        shutil.copyfile(src, dst)
+
+
+def assemble(res, targets, infos):
+    """Place cached renders (or hand-drawn overrides) at every target path."""
+    cache = DIST / f"{res}x" / "_cache"
+    for t in targets:
+        info = infos.get(t.key)
+        if info is None:
+            continue
+        root = pack_root(res, t.pack)
+        root = root / t.sub if t.sub else root
+        target = out_file(root, t.path)
         manual, manual_res = find_override(t.path, res)
         if manual:
+            target.parent.mkdir(parents=True, exist_ok=True)
             img = Image.open(manual).convert("RGBA")
             if manual_res != res:
                 f = max(1, res // manual_res)
@@ -187,39 +250,35 @@ def render(job):
                 if side.exists():
                     shutil.copyfile(side, out_file(root, t.path, suffix))
         else:
-            s = pick_scale(res, w, h, frames)
-            layers = [[], [], []]
-            for i in range(frames):
-                ctx = Ctx(t.key.split("@")[0], w, h, s, frame=i, frames=frames)
-                out = spec.fn(ctx)
-                if isinstance(out, list):
-                    out = out[i]
-                for k, arr in enumerate(encode(out)):
-                    layers[k].append(arr)
-            stacked = [np.concatenate(l, 0) for l in layers]
-            Image.fromarray(stacked[0], "RGBA").save(target, compress_level=6)
-            if pbr:
-                Image.fromarray(stacked[1], "RGBA").save(out_file(root, t.path, "_n"), compress_level=6)
-                Image.fromarray(stacked[2], "RGBA").save(out_file(root, t.path, "_s"), compress_level=6)
+            base = cache / cache_name(t.key)
+            _link(Path(f"{base}.png"), target)
+            if info["pbr"]:
+                _link(Path(f"{base}_n.png"), out_file(root, t.path, "_n"))
+                _link(Path(f"{base}_s.png"), out_file(root, t.path, "_s"))
+        spec = TEXTURES[t.key]
         meta = {k: v for k, v in t.meta.items() if k in COPY_META}
-        if frames > 1 and not manual:
+        if info["frames"] > 1 and not manual:
             meta["animation"] = {"frametime": spec.frametime, **({"interpolate": True} if spec.interpolate else {})}
-            if w != h:
-                meta["animation"].update(width=w * s, height=h * s)  # frame size in pixels
+            if info["w"] != info["h"]:
+                meta["animation"].update(width=info["w"] * info["s"], height=info["h"] * info["s"])
         meta.update(spec.meta)
+        mf = target.with_name(target.name + ".mcmeta")
         if meta:
-            target.with_name(target.name + ".mcmeta").write_text(json.dumps(meta, indent=1))
-        return t, None
-    except Exception:
-        return t, traceback.format_exc()
+            mf.write_text(json.dumps(meta, indent=1))
+        elif mf.exists():
+            mf.unlink()
 
 
 # ---------------------------------------------------------------- targets
 
-def resolve(path, dims):
+def resolve(path, dims, tags=()):
     """Registry key able to render `path` with frame size `dims`, or None."""
     cands = [path] + [a[path] for a in (ALIASES, VERSION_ALIASES) if path in a]
     for cand in cands:
+        for tag in tags:
+            k = f"{cand}#{tag}"
+            if k in TEXTURES and native_layout(TEXTURES[k])[:2] == tuple(dims):
+                return k
         variant = f"{cand}@{dims[0]}x{dims[1]}"
         if variant in TEXTURES:
             return variant
@@ -228,89 +287,83 @@ def resolve(path, dims):
     return None
 
 
-def modern_targets():
-    """Core pack targets: base layout (<= 1.20.1 wins) + overlays for newer layouts."""
+def group_targets(g):
+    """Targets of one version-range pack. Returns (targets, overlays, skipped)."""
+    pack = f"core-{g.gid}"
     targets, overlays, skipped = [], {}, []
-    paths = sorted(set().union(*(INDEXES[v] for v, _ in MODERN if v in INDEXES)))
+    sampled = [(v, f) for v, f in zip(g.versions, g.formats) if v in INDEXES]
+    paths = sorted(set().union(*(INDEXES[v] for v, _ in sampled)))
     for p in paths:
-        seen = [(v, f, INDEXES[v][p]) for v, f in MODERN if p in INDEXES.get(v, {})]
-        old = [x for x in seen if x[1] < OVERLAY_MIN]
-        # Pre-overlay versions share the base folder; it carries the 1.20.1 layout
-        # (the most used pre-overlay version), older 1.13-1.19 layouts lose ties.
-        bv, bf, be = (old or seen)[-1]
+        seen = [(v, f, INDEXES[v][p]) for v, f in sampled if p in INDEXES[v]]
+        bv, bf, be = seen[-1]                  # base layout: newest version of the range
         bdims = frame_layout(be)[:2]
-        key = resolve(p, bdims)
+        key = resolve(p, bdims, g.tags)
         if key:
-            targets.append(Target("core", p, key, meta=be.get("mcmeta", {})))
+            targets.append(Target(pack, p, key, meta=be.get("mcmeta", {})))
         else:
             skipped.append((p, bv))
-        # newer layouts -> overlays
-        prev_fmt, run = None, []
-        sampled = [(v, f) for v, f in MODERN if v in INDEXES]
+        if not g.overlays:
+            continue
+        run = []                                # older layouts inside the range -> overlays
         for i, (v, f) in enumerate(sampled):
             e = INDEXES[v].get(p)
             dims = frame_layout(e)[:2] if e else None
-            if f >= OVERLAY_MIN and dims and dims != bdims:
-                if run and run[-1][2] == dims:
+            if dims and dims != bdims:
+                if run and run[-1][2] == dims and run[-1][1] == sampled[i - 1][1]:
                     run[-1][1] = f
                 else:
-                    start = max(OVERLAY_MIN, (sampled[i - 1][1] + 1) if i else OVERLAY_MIN)
+                    start = max(g.pack_format, (sampled[i - 1][1] + 1) if i else g.pack_format)
                     run.append([start, f, dims, e])
         for start, end, dims, e in run:
-            end = OPEN_MAX if end == MODERN[-1][1] else end
-            key = resolve(p, dims)
+            key = resolve(p, dims, g.tags)
             if key:
                 sub = f"overlay_{start}_{end}"
                 overlays[sub] = (start, end)
-                targets.append(Target("core", p, key, sub=sub, meta=e.get("mcmeta", {})))
+                targets.append(Target(pack, p, key, sub=sub, meta=e.get("mcmeta", {})))
             else:
                 skipped.append((p, f"{dims[0]}x{dims[1]} overlay"))
-    # registry entries outside the vanilla index (CTM tiles, own namespaces, add-ons)
+    # registry entries outside the vanilla index (CTM tiles, own namespaces)
+    legacy = g.versions[-1].startswith("1.") and int(g.versions[-1].split(".")[1]) < 13
     for key, spec in TEXTURES.items():
-        if "@" not in key and (key.startswith("/") or spec.pack != "core"):
-            targets.append(Target(spec.pack, key, key))
+        if "@" in key or "#" in key or spec.pack != "core" or not key.startswith("/"):
+            continue
+        if legacy and not key.startswith("/minecraft/optifine/ctm/glass/"):
+            continue
+        targets.append(Target(pack, key, key))
     return targets, overlays, skipped
 
 
-def legacy_targets():
-    targets, skipped = [], []
-    paths = sorted(set().union(*(INDEXES[v] for v, _ in LEGACY if v in INDEXES)))
-    for p in paths:
-        v, e = [(v, INDEXES[v][p]) for v, _ in LEGACY if p in INDEXES.get(v, {})][-1]
-        key = resolve(p, frame_layout(e)[:2])
-        if key:
-            targets.append(Target("legacy", p, key, meta=e.get("mcmeta", {})))
-        else:
-            skipped.append((p, v))
-    for key in TEXTURES:
-        if key.startswith("/minecraft/optifine/ctm/glass/"):
-            targets.append(Target("legacy", key, key))
-    return targets, skipped
+def addon_targets():
+    return [Target(spec.pack, key, key) for key, spec in TEXTURES.items()
+            if spec.pack != "core" and "@" not in key and "#" not in key]
 
 
 def pack_mcmeta(pack, overlays=None):
     info = PACKS[pack]
+    g = info["group"]
     desc = [{"text": f"{info['title']} ", "color": "gold"},
             {"text": f"v{VERSION}\n", "color": "gray"},
             {"text": info["blurb"], "color": "gray"}]
-    if pack == "legacy":
-        return {"pack": {"pack_format": 3, "description": f"{info['title']} v{VERSION} - {info['blurb']}"}}
-    meta = {"pack": {
-        "description": desc,
-        "pack_format": MIN_FORMAT,                       # read by 1.13 - 1.20.1 (warns below 1.20)
-        "supported_formats": [MIN_FORMAT, OPEN_MAX],     # read by 1.20.2 - 1.21.8
-        "min_format": MIN_FORMAT,                        # read by 1.21.9+
-        "max_format": OPEN_MAX,
-    }}
-    if overlays:
-        meta["overlays"] = {"entries": [
-            {"formats": [a, b], "min_format": a, "max_format": b, "directory": d}
-            for d, (a, b) in sorted(overlays.items(), key=lambda kv: kv[1])]}
+    if g is None:  # add-on
+        return {"pack": {"description": desc, "pack_format": ADDON_FORMAT,
+                         "supported_formats": [ADDON_FORMAT, OPEN_MAX],
+                         "min_format": ADDON_FORMAT, "max_format": OPEN_MAX}}
+    if g.pack_format < 4:  # 1.7-1.12 understand plain-string descriptions only
+        return {"pack": {"pack_format": g.pack_format,
+                         "description": f"{info['title']} v{VERSION} - {info['blurb']}"}}
+    meta = {"pack": {"description": desc, "pack_format": g.pack_format}}
+    if g.overlays:
+        meta["pack"].update(supported_formats=[g.pack_format, OPEN_MAX],
+                            min_format=g.pack_format, max_format=OPEN_MAX)
+        if overlays:
+            meta["overlays"] = {"entries": [
+                {"formats": [a, b], "min_format": a, "max_format": b, "directory": d}
+                for d, (a, b) in sorted(overlays.items(), key=lambda kv: kv[1])]}
     return meta
 
 
-def pack_icon(res_root):
-    core = res_root / PACKS["core"]["dir"] / "assets" / "minecraft" / "textures" / "block"
+def pack_icon(res):
+    core = pack_root(res, MAIN_PACK) / "assets" / "minecraft" / "textures" / "block"
     tiles = ["grass_block_side", "stone", "oak_planks", "diamond_ore"]
     icon = Image.new("RGBA", (32, 32))
     for i, name in enumerate(tiles):
@@ -326,29 +379,40 @@ def pack_icon(res_root):
     return icon.resize((128, 128), Image.NEAREST)
 
 
-def finish_packs(res, packs, overlays=None):
-    res_root = DIST / f"{res}x"
+def static_ok(pack, path):
+    """Which packs get which static (non-image) files."""
+    g = PACKS[pack]["group"]
+    if g is None:
+        return False
+    if g.pack_format < 4:
+        return "optifine/ctm/glass/" in path
+    if path.startswith("minecraft/font/include/"):
+        return g.pack_format >= 15
+    return True
+
+
+def finish_packs(res, packs, overlays):
+    icon = pack_icon(res)
     for pack in packs:
-        root = res_root / PACKS[pack]["dir"]
+        root = pack_root(res, pack)
         root.mkdir(parents=True, exist_ok=True)
         for (p, path), text in FILES.items():
-            legacy_ok = pack == "legacy" and p == "core" and "optifine/ctm/glass/" in path
-            if p == pack or legacy_ok:
+            if (p == pack) or (p == "core" and pack.startswith("core-") and static_ok(pack, path)):
                 f = root / "assets" / path
                 f.parent.mkdir(parents=True, exist_ok=True)
                 f.write_text(text)
         (root / "pack.mcmeta").write_text(json.dumps(
-            pack_mcmeta(pack, overlays if pack == "core" else None), indent=1, ensure_ascii=False))
+            pack_mcmeta(pack, overlays.get(pack)), indent=1, ensure_ascii=False))
         for f in LICENSE_FILES:
             shutil.copyfile(ROOT / f, root / f)
-    icon = pack_icon(res_root)
-    for pack in packs:
-        icon.save(res_root / PACKS[pack]["dir"] / "pack.png")
+        icon.save(root / "pack.png")
 
 
 def zip_pack(res, pack):
-    root = DIST / f"{res}x" / PACKS[pack]["dir"]
-    zpath = DIST / f"{PACKS[pack]['dir']}-{VERSION}-{res}x.zip"
+    root = pack_root(res, pack)
+    g = PACKS[pack]["group"]
+    name = PACKS[pack]["dir"] if g is None else f"CircuitMC-Default-mc{g.gid}"
+    zpath = DIST / f"{name}-{VERSION}-{res}x.zip"
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         for f in sorted(root.rglob("*")):
             if f.is_file():
@@ -388,7 +452,7 @@ def tinted(img, color):
 
 
 def preview(prefixes, res=16, cols=32, zoom=2, only=None, tag="all"):
-    root = DIST / f"{res}x" / PACKS["core"]["dir"] / "assets" / "minecraft" / "textures"
+    root = pack_root(res, MAIN_PACK) / "assets" / "minecraft" / "textures"
     names = sorted(p for p in (only or TEXTURES) if not p.startswith("/") and p.startswith(tuple(prefixes))
                    and (root / f"{p}.png").exists())
     cell = 32 * zoom + 4
@@ -430,15 +494,15 @@ def preview(prefixes, res=16, cols=32, zoom=2, only=None, tag="all"):
 # ---------------------------------------------------------------- main
 
 def report_versions(targets):
-    """Per sampled version: share of its vanilla textures the matching pack provides."""
-    have = {("legacy" if t.pack == "legacy" else "core", t.path) for t in targets}
-    for v, f in LEGACY + MODERN:
-        if v not in INDEXES:
-            continue
-        pack = "legacy" if (v, f) in LEGACY else "core"
-        n = len(INDEXES[v])
-        c = sum(1 for p in INDEXES[v] if (pack, p) in have)
-        print(f"  {v:>7} (format {f:>2}): {c}/{n} ({c / n:.0%})")
+    """Per sampled version: share of its vanilla textures its pack provides."""
+    have = {(t.pack, t.path) for t in targets}
+    for g in GROUPS:
+        for v, f in zip(g.versions, g.formats):
+            if v not in INDEXES:
+                continue
+            n = len(INDEXES[v])
+            c = sum(1 for p in INDEXES[v] if (f"core-{g.gid}", p) in have)
+            print(f"  {v:>7} (format {f:>2}, pack mc{g.gid}): {c}/{n} ({c / n:.0%})")
 
 
 def main():
@@ -446,61 +510,69 @@ def main():
     ap.add_argument("--res", type=int, nargs="+", default=[16, 64], choices=[16, 32, 64, 128, 256, 512, 1024])
     ap.add_argument("--only", nargs="*", default=[], help="path prefixes to build, e.g. block/ item/")
     ap.add_argument("--area", help="build only one work area from data/assignments.json, e.g. block_stone")
+    ap.add_argument("--groups", nargs="+", help="full build of only these version groups, e.g. 1.20.2+ 1.16")
     ap.add_argument("--jobs", type=int, default=mp.cpu_count())
-    ap.add_argument("--preview", nargs="*", help="contact sheet of these prefixes (default block/)")
+    ap.add_argument("--preview", nargs="*", help="contact sheet of these prefixes (default: all)")
     ap.add_argument("--no-zip", action="store_true")
     ap.add_argument("--clean", action="store_true", help="delete dist/<res>x before building")
-    ap.add_argument("--modern-only", action="store_true", help="skip the 1.7-1.12 legacy pack")
-    ap.add_argument("--patch", nargs="+", help="full build, but re-render only targets under these path "
-                                              "prefixes (pack metadata, static files and zips are refreshed)")
     args = ap.parse_args()
 
     for mod, err in LOAD_ERRORS:
         print(f"!! failed to import {mod}:\n{err}", file=sys.stderr)
 
     full = not (args.only or args.area)
+    overlays, skipped = {}, []
     if full:
-        targets, overlays, skipped = modern_targets()
-        if not args.modern_only:
-            lt, lskipped = legacy_targets()
-            targets += lt
-        if args.patch:
-            targets = [t for t in targets if t.path.startswith(tuple(args.patch))]
-        paths = sorted({t.key for t in targets})
+        targets = []
+        for g in GROUPS:
+            if args.groups and g.gid not in args.groups:
+                continue
+            t, o, s = group_targets(g)
+            targets += t
+            overlays[f"core-{g.gid}"] = o
+            skipped += [(f"mc{g.gid}", p, why) for p, why in s]
+        if not args.groups:
+            targets += addon_targets()
     else:
-        overlays, skipped = {}, []
-        paths = sorted(p for p in TEXTURES if "@" not in p and (not args.only or p.startswith(tuple(args.only))))
+        paths = sorted(p for p in TEXTURES if "@" not in p and "#" not in p
+                       and (not args.only or p.startswith(tuple(args.only))))
         if args.area:
             assign = json.loads((ROOT / "data" / "assignments.json").read_text())
             paths = [p for p in paths if assign.get(p) == args.area]
-        targets = [Target(TEXTURES[p].pack, p, p, meta=VANILLA_INDEX.get(p, {}).get("mcmeta", {})) for p in paths]
+        targets = [Target(MAIN_PACK if TEXTURES[p].pack == "core" else TEXTURES[p].pack, p, p,
+                          meta=VANILLA_INDEX.get(p, {}).get("mcmeta", {})) for p in paths]
+    keys = sorted({t.key for t in targets})
+    packs = sorted({t.pack for t in targets} | {MAIN_PACK})
     failures = []
     for res in args.res:
         if args.clean and (DIST / f"{res}x").exists():
             shutil.rmtree(DIST / f"{res}x")
+        (DIST / f"{res}x" / "_cache").mkdir(parents=True, exist_ok=True)
         t0 = time.time()
-        ctx = mp.get_context("fork")
-        with ctx.Pool(args.jobs) as pool:
-            for t, err in pool.imap_unordered(render, [(t, res) for t in targets], chunksize=4):
+        infos = {}
+        with mp.get_context("fork").Pool(args.jobs) as pool:
+            for key, info, err in pool.imap_unordered(render, [(k, res) for k in keys], chunksize=2):
                 if err:
-                    failures.append((res, t.path, err))
-        packs = sorted({t.pack for t in targets} | ({p for p, _ in FILES} if full else set()) | {"core"}
-                       | ({"legacy"} if full and not args.modern_only else set()))
+                    failures.append((res, key, err))
+                else:
+                    infos[key] = info
+        assemble(res, targets, infos)
         finish_packs(res, packs, overlays)
-        print(f"{res}x: {len(targets)} files from {len(paths)} generators in {time.time() - t0:.1f}s")
-        if not args.no_zip:
+        print(f"{res}x: {len(keys)} renders -> {len(targets)} files in {len(packs)} packs, {time.time() - t0:.1f}s")
+        if full and not args.no_zip:
             for pack in packs:
                 print(f"  -> {zip_pack(res, pack)}")
 
     covered = sum(1 for p in VANILLA_INDEX if p in TEXTURES)
     print(f"coverage: {covered}/{len(VANILLA_INDEX)} vanilla {VANILLA} textures ({covered / len(VANILLA_INDEX):.1%})")
-    if full and not args.patch:
+    if full:
         report_versions(targets)
-        (DIST / "skipped.txt").write_text("\n".join(f"{p}  ({why})" for p, why in skipped))
-    for res, path, err in failures:
-        print(f"!! {res}x {path}:\n{err}", file=sys.stderr)
+        (DIST / "skipped.txt").write_text("\n".join(f"{g}  {p}  ({why})" for g, p, why in skipped))
+    for res, key, err in failures:
+        print(f"!! {res}x {key}:\n{err}", file=sys.stderr)
     if args.preview is not None:
-        preview(args.preview or [""], only=paths if args.area else None, tag=args.area or "all")
+        preview(args.preview or [""], only=[t.path for t in targets if t.pack == MAIN_PACK and not t.sub]
+                if args.area else None, tag=args.area or "all")
     return 1 if failures or LOAD_ERRORS else 0
 
 

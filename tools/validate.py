@@ -21,7 +21,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from build import INDEXES, LEGACY, MODERN, PACKS, frame_layout  # noqa: E402
+from build import ALL_VERSIONS, DIST, INDEXES, PACKS, frame_layout  # noqa: E402
 
 TINTED = re.compile(r"^block/(grass_block_top|grass_block_side_overlay|short_grass|tall_grass_(top|bottom)|fern|"
                     r"large_fern_(top|bottom)|vine|sugar_cane|lily_pad|(oak|spruce|birch|jungle|acacia|dark_oak|"
@@ -40,9 +40,10 @@ class Report:
 
 def expected_layouts(pack, path):
     """All (frame_w, frame_h) layouts vanilla used for this path in the versions the pack serves."""
-    versions = LEGACY if pack == "legacy" else MODERN
+    g = PACKS[pack]["group"]
+    versions = g.versions if g else ALL_VERSIONS
     out = set()
-    for v, _ in versions:
+    for v in versions:
         e = INDEXES.get(v, {}).get(path)
         if e:
             out.add(frame_layout(e)[:2])
@@ -81,7 +82,8 @@ def check_png(rep, pack, root, f, res):
     if anim and H % fh:
         rep.add("animation strip", f"{rel}: {W}x{H} not a multiple of frame {fw}x{fh}")
     layouts = expected_layouts(pack, path)
-    if layouts:
+    # The jar only holds 1x1 placeholders for the title panorama (real faces ship as assets).
+    if layouts and not path.startswith("gui/title/background/"):
         ok = any(fw % lw == 0 and fh % lh == 0 and fw // lw == fh // lh and (fw // lw) & (fw // lw - 1) == 0
                  for lw, lh in layouts)
         if not ok:
@@ -147,9 +149,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--res", type=int, nargs="*")
     args = ap.parse_args()
-    dist = ROOT / "dist"
+    dist = DIST
     bad = 0
-    for res_dir in sorted(dist.glob("*x")):
+    for res_dir in sorted(d for d in dist.glob("*x") if d.name[:-1].isdigit()):
         res = int(res_dir.name[:-1])
         if args.res and res not in args.res:
             continue

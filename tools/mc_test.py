@@ -114,17 +114,41 @@ def prepare(version, cache):
     return meta, cp, natives
 
 
-def options_lines(version_meta, names):
-    """Enable the packs; pre-confirm the "made for another version" prompt only where the
-    client really considers them incompatible (26.x drops packs listed there otherwise)."""
+LEGACY_FORMATS = {"1.6": 1, "1.7": 1, "1.8": 1, "1.9": 2, "1.10": 2, "1.11": 3, "1.12": 3}
+
+
+def client_format(vid):
+    if vid.startswith("1.") and int(vid.split(".")[1]) < 13:
+        return LEGACY_FORMATS[".".join(vid.split(".")[:2])]
+    data = Path(__file__).resolve().parent.parent / "data" / f"vanilla-{vid}.json"
+    pv = json.loads(data.read_text()).get("pack_version") if data.exists() else None
+    if isinstance(pv, dict):
+        return pv.get("resource", pv.get("resource_major"))
+    return pv
+
+
+def pack_compatible(zip_path, fmt):
+    with zipfile.ZipFile(zip_path) as z:
+        meta = json.loads(z.read("pack.mcmeta"))["pack"]
+    lo, hi = meta.get("supported_formats", [meta["pack_format"]] * 2)
+    if fmt is None:
+        return True
+    if fmt >= 18:  # 1.20.2+ read supported_formats / min..max
+        return lo <= fmt <= hi
+    return meta["pack_format"] == fmt
+
+
+def options_lines(version_meta, zips):
+    """Enable the packs; pre-confirm the "made for another version" prompt only for
+    packs the client really considers incompatible (26.x drops compatible ones listed there)."""
     vid = version_meta["id"]
-    minor = int(vid.split(".")[1]) if vid.startswith("1.") else 99
-    legacy = minor < 13
-    ids = names if legacy else [f"file/{n}" for n in names]
+    legacy = vid.startswith("1.") and int(vid.split(".")[1]) < 13
+    fmt = client_format(vid)
+    ids = [Path(z).name if legacy else f"file/{Path(z).name}" for z in zips]
     lst = ",".join(f'"{i}"' for i in ids)
+    bad = ",".join(f'"{i}"' for i, z in zip(ids, zips) if not pack_compatible(z, fmt))
     packs = f"[{lst}]" if legacy else f'["vanilla",{lst}]'
-    incompatible = minor < 11 if legacy else minor < 20
-    return f"resourcePacks:{packs}\nincompatibleResourcePacks:[{lst if incompatible else ''}]\n"
+    return f"resourcePacks:{packs}\nincompatibleResourcePacks:[{bad}]\n"
 
 
 def press_f2(game):
@@ -189,7 +213,7 @@ def main():
     for p in args.packs:
         shutil.copy(p, game / "resourcepacks")
         names.append(Path(p).name)
-    opts = options_lines(meta, names)
+    opts = options_lines(meta, args.packs)
     (game / "options.txt").write_text(opts + "fullscreen:false\nonboardAccessibility:false\n"
                                       "tutorialStep:none\nskipMultiplayerWarning:true\njoinedFirstServer:true\n")
     values = {
