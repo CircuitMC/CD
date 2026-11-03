@@ -30,14 +30,18 @@ def ingot(ctx, p, metal_id=None, smooth=0.75, porosity=0.0, f0=0.04):
 
 
 def nugget(ctx, p, metal_id=None):
-    m = U(ell(ctx, 7.0, 9.0, 3.4, 2.6, 0.3), ell(ctx, 10.0, 8.0, 2.4, 2.0), ell(ctx, 8.4, 11.0, 2.6, 1.8))
-    t = spr(ctx, m, p, bevel=1.5, smooth=0.75)
-    ring = ctx.edge(m, 1) > 0
-    paint(t, dots(ctx, [(5, 7), (9, 6)], 0.5) * (~ring), p[4])
-    paint(t, dots(ctx, [(9, 11)], 0.5) * (~ring), p[1])
-    if metal_id:
-        t.set_metal(m, metal_id)
-    return t
+    """Three small irregular metal lumps, each with its own highlight."""
+    layers = []
+    for cx, cy, rx, ry, a in ((6.0, 10.4, 2.8, 2.2, 0.3), (10.6, 9.6, 2.4, 1.9, -0.4), (8.4, 6.4, 2.2, 1.8, 0.1)):
+        m = U(ell(ctx, cx, cy, rx, ry, a), ell(ctx, cx + 0.6, cy - 0.5, rx * 0.7, ry * 0.8, a))
+        t = spr(ctx, m, p, bevel=1.2, smooth=0.8)
+        ring = ctx.edge(m, 1) > 0
+        paint(t, dots(ctx, [(cx - 1.4, cy - 1.2)], 0.5) * (~ring), p[4])
+        paint(t, dots(ctx, [(cx + 0.6, cy + 0.6)], 0.45) * (~ring), p[1])
+        if metal_id:
+            t.set_metal(m, metal_id)
+        layers.append(t)
+    return compose(ctx, *layers)
 
 
 register("item/gold_ingot", lambda ctx: ingot(ctx, GOLD, GOLD_ID))
@@ -155,7 +159,26 @@ def lump(ctx, p, salt, smooth=0.3):
     return t
 
 
-register("item/coal", lambda ctx: lump(ctx, pal("0c0c0e", "1a1a1e", "28282e", "3a3a42", "5a5a66"), "coal", 0.35))
+@texture("item/coal")
+def coal(ctx):
+    p = pal("0c0c0e", "24242a", "3a3a42", "5a5a66", "8e8e9c")
+    m = poly(ctx, [(2.0, 9.6), (3.6, 4.4), (7.4, 2.0), (11.6, 2.8), (14.2, 6.6), (13.6, 11.6), (9.4, 14.4),
+                   (4.4, 13.6)])
+    t = spr(ctx, m, p, bevel=1.5, smooth=0.55)
+    ring = ctx.edge(m, 1) > 0
+    facets = [(poly(ctx, [(3.6, 4.4), (7.4, 2.0), (8.2, 6.4), (4.6, 8.4)]), 3),
+              (poly(ctx, [(7.4, 2.0), (11.6, 2.8), (11.0, 6.8), (8.2, 6.4)]), 2),
+              (poly(ctx, [(11.6, 2.8), (14.2, 6.6), (11.0, 6.8)]), 1),
+              (poly(ctx, [(2.0, 9.6), (4.6, 8.4), (6.6, 12.6), (4.4, 13.6)]), 2),
+              (poly(ctx, [(4.6, 8.4), (8.2, 6.4), (11.0, 6.8), (10.4, 10.6), (6.6, 12.6)]), 2),
+              (poly(ctx, [(11.0, 6.8), (14.2, 6.6), (13.6, 11.6), (10.4, 10.6)]), 1),
+              (poly(ctx, [(6.6, 12.6), (10.4, 10.6), (13.6, 11.6), (9.4, 14.4)]), 0)]
+    for fm, idx in facets:
+        paint(t, fm * (~ring), p[idx])
+    edges = U(line(ctx, [(4.6, 8.4), (8.2, 6.4), (11.0, 6.8)], 0.6), line(ctx, [(7.4, 2.4), (8.2, 6.4)], 0.6))
+    paint(t, edges * (~ring), p[4])
+    paint(t, dots(ctx, [(5, 4), (9, 3)], 0.45), pal("9a9aa8")[0])
+    return t
 
 
 @texture("item/charcoal")
@@ -286,11 +309,36 @@ def bottle(ctx, liquid=None, emissive=0.0, swirl=None):
     return t
 
 
-register("item/glass_bottle", lambda ctx: bottle(ctx))
-register("item/experience_bottle", lambda ctx: bottle(ctx, pal("2e6a0a", "58a814", "8ad62a", "c4f45a", "f0ffb0"),
-                                                      0.8, pal("f8ff9a")[0]))
-register("item/dragon_breath", lambda ctx: bottle(ctx, pal("5a1a4a", "9a3a80", "cc62ae", "eea2d2", "ffd8f0"), 0.5,
-                                                  pal("ffe4f6")[0]))
+def glass_filled(ctx, liquid=None, emissive=0.0, sparkle=None):
+    """Bottle in the shared potion geometry (h_liquids). Empty glass is drawn as
+    pale tinted glass (opaque, crisp) so the bottle reads as a solid object."""
+    from . import h_liquids as HL
+    t = HL.bottle(ctx, liquid, emissive)
+    body, neck, lip = HL._bottle_masks(ctx)
+    m = (U(body, neck) > 0.5)
+    ring = ctx.edge(U(body, neck, lip), 1) > 0
+    empty = m & (t.alpha < 0.5)
+    k = ctx.w / 16
+    yy = ctx.y / k
+    shade = np.clip((yy - 4) / 11, 0, 1)[..., None]
+    pale = GLASS[3] * (1 - shade) + GLASS[2] * shade
+    t.color = np.where(empty[..., None], pale, t.color)
+    t.alpha = np.where(empty, 1.0, t.alpha)
+    t.height = np.where(empty, 0.7, t.height)
+    t.smooth = np.where(empty, 0.95, t.smooth)
+    # glass shading: darker right side, bright streak on the left
+    paint(t, inter(circ(ctx, 9.6, 11.6, 3.2), box(ctx, 9.6, 0, 16, 16)) * empty, GLASS[2] * 0.92)
+    paint(t, U(line(ctx, [(5.6, 9.4), (5.6, 11.8)], 0.9), dots(ctx, [(7, 4)], 0.45)) * (~ring), pal("ffffff")[0])
+    if sparkle is not None and liquid is not None:
+        paint(t, dots(ctx, [(9, 11), (7, 13), (10, 13)], 0.45), sparkle)
+    return t
+
+
+register("item/glass_bottle", lambda ctx: glass_filled(ctx))
+register("item/experience_bottle", lambda ctx: glass_filled(
+    ctx, pal("2e6a0a", "58a814", "8ad62a", "c4f45a", "f0ffb0"), 0.8, pal("ffffc0")[0]))
+register("item/dragon_breath", lambda ctx: glass_filled(
+    ctx, pal("5a1a4a", "9a3a80", "cc62ae", "eea2d2", "ffd8f0"), 0.5, pal("fff0fa")[0]))
 
 
 # ------------------------------------------------------------------ books
@@ -418,12 +466,14 @@ def goat_horn(ctx):
 
 @texture("item/armadillo_scute")
 def armadillo_scute(ctx):
+    """A single shell plate: rounded shield, pink-brown, with overlapping bands."""
     p = pal("4a2420", "7e3e36", "a8584c", "c87a6a", "e2a292")
-    m = U(ell(ctx, 8.0, 9.0, 6.4, 4.6), box(ctx, 1.6, 9.0, 14.4, 12.0))
-    m = minus(m, ell(ctx, 8.0, 15.6, 5.0, 2.6))
-    t = spr(ctx, m, p, bevel=2.5, smooth=0.45)
+    m = U(poly(ctx, [(2.0, 4.0), (8.0, 2.0), (14.0, 4.0), (13.4, 10.0), (8.0, 14.6), (2.6, 10.0)]))
+    t = spr(ctx, m, p, bevel=2.0, smooth=0.5)
     ring = ctx.edge(m, 1) > 0
-    for x in (5.0, 8.0, 11.0):
-        paint(t, line(ctx, [(x, 5.4), (x + (x - 8) * 0.2, 11.6)], 0.7) * (~ring), p[1])
-    paint(t, line(ctx, [(4.0, 6.0), (7.0, 4.8)], 0.7) * (~ring), p[4])
+    for y0 in (5, 8, 11):
+        paint(t, inter(m, box(ctx, 0, y0, 16, y0 + 1)) * (~ring), p[1])
+        paint(t, inter(m, box(ctx, 0, y0 + 1, 16, y0 + 2)) * (~ring), p[3])
+    paint(t, line(ctx, [(4.0, 4.2), (8.0, 3.0), (12.0, 4.2)], 0.7) * (~ring), p[4])
+    paint(t, line(ctx, [(8.0, 3.4), (8.0, 13.0)], 0.6) * (~ring), p[2])
     return t

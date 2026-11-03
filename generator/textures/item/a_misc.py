@@ -260,16 +260,21 @@ IRON_POT = pal("1a1a1e", "2e2e34", "44444c", "5e5e68", "7a7a84")
 
 @texture("item/cauldron")
 def cauldron(ctx):
-    body = U(box(ctx, 1.0, 3.0, 15.0, 13.0), box(ctx, 1.0, 13.0, 4.0, 15.0), box(ctx, 12.0, 13.0, 15.0, 15.0))
-    t = spr(ctx, body, IRON_POT, bevel=1.5, smooth=0.45)
+    """Iron pot: thick rim with the dark opening, bulging body, two handles, feet."""
+    body = U(poly(ctx, [(1.6, 5.0), (14.4, 5.0), (14.0, 10.6), (12.4, 12.6), (3.6, 12.6), (2.0, 10.6)]),
+             box(ctx, 2.6, 12.0, 4.8, 14.8), box(ctx, 11.2, 12.0, 13.4, 14.8))
+    t = spr(ctx, body, IRON_POT, bevel=2.0, smooth=0.45)
     t.set_metal(body, IRON_ID)
     ring = ctx.edge(body, 1) > 0
-    paint(t, box(ctx, 2.0, 4.0, 14.0, 5.0), IRON_POT[4])
-    paint(t, box(ctx, 2.0, 5.0, 14.0, 6.0), IRON_POT[1])
-    paint(t, box(ctx, 4.0, 13.0, 12.0, 15.0), pal("000000")[0])
-    t.alpha = np.where(box(ctx, 4.0, 13.0, 12.0, 15.0) > 0.5, 0.0, t.alpha)
-    paint(t, U(box(ctx, 3.0, 8.0, 5.0, 10.0), box(ctx, 11.0, 8.0, 13.0, 10.0)) * (~ring), IRON_POT[1])
-    return t
+    paint(t, box(ctx, 2.6, 7.0, 13.4, 7.8) * (~ring), IRON_POT[1])
+    paint(t, line(ctx, [(3.4, 8.6), (3.8, 11.0)], 0.7) * (~ring), IRON_POT[4])
+    rim = box(ctx, 0.6, 2.6, 15.4, 5.4)
+    tr = spr(ctx, rim, IRON_POT, bevel=1, smooth=0.5)
+    tr.set_metal(rim, IRON_ID)
+    paint(tr, box(ctx, 2.0, 3.4, 14.0, 4.6), pal("0a0a0c")[0])
+    paint(tr, box(ctx, 2.0, 4.0, 14.0, 4.6), pal("1e2a3a")[0])
+    handles = spr(ctx, U(box(ctx, 0.0, 6.0, 1.6, 8.4), box(ctx, 14.4, 6.0, 16.0, 8.4)), IRON_POT, bevel=1)
+    return compose(ctx, handles, t, tr)
 
 
 @texture("item/flower_pot")
@@ -336,16 +341,23 @@ def barrier(ctx):
 
 @texture("item/brewing_stand")
 def brewing_stand(ctx):
-    base = spr(ctx, U(box(ctx, 1.0, 13.0, 6.0, 15.0), box(ctx, 10.0, 13.0, 15.0, 15.0), box(ctx, 5.6, 13.6, 10.4, 15.0)),
-               STONE, bevel=1)
-    rod_t = spr(ctx, box(ctx, 7.0, 2.0, 9.0, 14.0), pal("7a3404", "d0700c", "f6a420", "ffd250"), bevel=1,
-                emissive=0.4)
-    arms = rod(ctx, [(3.0, 9.0), (8.0, 6.0), (13.0, 9.0)], 1.0, pal("3a2a1a", "6a5034", "8a7050"))
-    bottles = []
-    for cx in (3.0, 13.0):
-        b = U(circ(ctx, cx, 11.0, 1.8), box(ctx, cx - 0.6, 8.6, cx + 0.6, 10.0))
-        bottles.append(spr(ctx, b, pal("4a6a7a", "86a8b8", "b6d2de", "e4f4fa"), bevel=1, smooth=0.9))
-    return compose(ctx, base, arms, rod_t, *bottles)
+    """Stone base, a central blaze rod with two arms holding filled potion bottles."""
+    base = spr(ctx, U(box(ctx, 1.4, 13.0, 14.6, 15.4)), STONE, bevel=1)
+    paint(base, box(ctx, 2.4, 13.6, 13.6, 14.2), STONE[3])
+    rod_t = spr(ctx, U(box(ctx, 7.0, 2.4, 9.0, 13.4), box(ctx, 6.4, 1.2, 9.6, 2.8)),
+                pal("6a2c04", "c4620c", "f29a1e", "ffd050"), bevel=1, emissive=0.5)
+    arms = rod(ctx, [(3.4, 6.6), (8.0, 4.4), (12.6, 6.6)], 1.2, pal("2a2a2e", "55555c", "8a8a92"))
+    layers = [base, arms, rod_t]
+    for cx, liquid in ((3.4, pal("5a0a1e", "a01a3a", "d43a5a", "f07a8a")), (12.6, pal("0e2a6a", "1e4aa8", "3a74d8",
+                                                                                         "7aa8f4"))):
+        bm = U(circ(ctx, cx, 10.4, 2.4), box(ctx, cx - 0.8, 6.6, cx + 0.8, 8.6))
+        b = spr(ctx, bm, pal("4a6a7a", "a8c8d4", "d6eaf2", "f2fbff"), bevel=1, smooth=0.95)
+        lm = inter(circ(ctx, cx, 10.4, 1.5), box(ctx, 0, 9.4, 16, 16))
+        paint(b, lm, liquid[2])
+        paint(b, inter(lm, box(ctx, cx, 10.6, 16, 16)), liquid[1])
+        paint(b, dots(ctx, [(cx - 1.6, 9.0)], 0.45), pal("ffffff")[0])
+        layers.append(b)
+    return compose(ctx, *layers)
 
 
 @texture("item/comparator")
@@ -391,19 +403,22 @@ def end_crystal(ctx):
 
 @texture("item/firefly_bush")
 def firefly_bush(ctx):
+    """Low bush of leaf clumps on short stems, with glowing fireflies around it."""
     p = pal("1a2a0e", "2e4a16", "46682a", "5e863a", "7aa24c")
-    m = U(ell(ctx, 8.0, 10.0, 6.4, 4.6), circ(ctx, 5.0, 7.0, 3.0), circ(ctx, 11.0, 6.6, 3.0), circ(ctx, 8.0, 5.0, 3.0))
-    t = spr(ctx, m, p, bevel=2.0, sss=0.4)
-    ring = ctx.edge(m, 1) > 0
-    n = ctx.texel_noise("bush")
-    inner = (m > 0.5) & ~ring
-    t.color[inner & (n < 0.2)] = p[1]
-    t.color[inner & (n > 0.85)] = p[4]
-    flies = dots(ctx, [(3, 3), (13, 2), (12, 10), (5, 11), (8, 7), (14, 6)], 0.5)
-    paint(t, flies, pal("e8f86a")[0], inside=False)
-    t.alpha = np.maximum(t.alpha, flies)
-    t.emissive = np.where(flies > 0.5, 1.0, 0.0)
-    return t
+    sp = pal("2a1e10", "4a3620", "6a5034")
+    layers = [rod(ctx, [(x0, 15.4), (x1, 12.0)], 1.0, sp) for x0, x1 in ((7.5, 5.0), (8.5, 11.0), (8.0, 8.0))]
+    for cx, cy, r in ((3.8, 10.6, 3.0), (12.2, 10.6, 3.0), (8.0, 8.0, 3.4), (8.0, 11.6, 2.8), (5.6, 7.4, 2.4),
+                      (10.6, 7.2, 2.4)):
+        m = U(circ(ctx, cx, cy, r), ell(ctx, cx, cy - r * 0.6, r * 0.6, r * 0.7))
+        t = spr(ctx, m, p, bevel=1.5, sss=0.4)
+        ring = ctx.edge(m, 1) > 0
+        paint(t, dots(ctx, [(cx - 1.4, cy - 1.6), (cx + 0.2, cy - 0.4)], 0.5) * (~ring), p[4])
+        paint(t, dots(ctx, [(cx + 0.8, cy + 0.8)], 0.5) * (~ring), p[1])
+        layers.append(t)
+    t = compose(ctx, *layers)
+    flies = dots(ctx, [(2, 4), (13, 3), (14, 14), (1, 15), (8, 2)], 0.55)
+    glow = spr(ctx, flies, pal("8a9a1e", "d8f04a", "f8ffa0"), outline=False, bevel=1, emissive=1.0)
+    return compose(ctx, t, glow)
 
 
 # ---------------------------------------------------------------- fireworks
@@ -433,10 +448,17 @@ def star_mask(ctx):
 
 @texture("item/firework_star")
 def firework_star(ctx):
-    m = star_mask(ctx)
-    t = spr(ctx, m, pal("1e1e20", "3a3a3e", "56565c", "74747a", "96969c"), bevel=2.0, porosity=0.8)
-    inner = circ(ctx, 8.0, 8.4, 3.0)
-    paint(t, inner, pal("2a2a2e")[0])  # covered by the tinted overlay
+    """A packed ball of gunpowder; its dyed core is the tinted overlay."""
+    p = pal("1a1a1c", "34343a", "50505a", "6e6e78", "929aa0")
+    m = U(circ(ctx, 8.0, 8.4, 5.6), circ(ctx, 4.0, 5.0, 1.4), circ(ctx, 12.4, 4.6, 1.2), circ(ctx, 12.8, 12.4, 1.3),
+          circ(ctx, 3.4, 12.2, 1.2))
+    t = spr(ctx, m, p, bevel=2.5, porosity=0.8)
+    ring = ctx.edge(m, 1) > 0
+    n = ctx.texel_noise("star")
+    inner = (m > 0.5) & ~ring
+    t.color[inner & (n < 0.2)] = p[1]
+    t.color[inner & (n > 0.85)] = p[4]
+    paint(t, circ(ctx, 8.0, 8.4, 3.0), p[2])
     return t
 
 

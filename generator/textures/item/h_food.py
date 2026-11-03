@@ -17,31 +17,43 @@ LEAF = pal("1a4210", "2c6e1a", "44a02a", "76cc46")
 
 
 def chop(ctx, p, rim, bone=True, marbling=None):
-    meat = poly(ctx, [(2.0, 9.0), (3.0, 4.6), (6.6, 2.4), (10.6, 3.0), (12.4, 6.0), (11.6, 10.0), (8.4, 13.0),
-                      (4.4, 13.4)])
-    tm = spr(ctx, meat, p, bevel=2.5, sss=0.15)
-    ring = ctx.edge(meat, 1) > 0
-    inner = poly(ctx, [(3.4, 8.8), (4.2, 5.4), (7.0, 3.8), (10.0, 4.4), (10.8, 6.6), (10.2, 9.4), (7.8, 11.6),
-                       (4.8, 12.0)])
-    paint(tm, (minus(meat, inner) > 0.5) & ~ring, rim)
-    if marbling is not None:
-        paint(tm, (dots(ctx, [(5, 7), (7, 5), (8, 9), (6, 10)], 0.45) > 0.5) & ~ring, marbling)
+    """bone=True: lamb rib chop (round eye of meat, fat rim, long rib bone).
+    bone=False: pork chop (broad slab with a thick fat cap along the top and a small bone eye).
+    Signature kept stable: item_1's cooked variants call this and sear the result."""
     layers = []
     if bone:
-        b = U(line(ctx, [(10.6, 8.4), (14.0, 12.4)], 1.8), circ(ctx, 14.2, 13.2, 1.3))
+        meat = poly(ctx, [(1.6, 10.0), (2.4, 6.0), (5.0, 3.6), (8.6, 3.6), (11.0, 5.6), (11.6, 9.0), (9.6, 12.6),
+                          (6.0, 14.2), (3.0, 13.4)])
+        eye = ell(ctx, 6.4, 8.8, 3.4, 3.2)
+        b = U(line(ctx, [(9.6, 6.6), (13.6, 2.6)], 2.0), circ(ctx, 14.0, 2.2, 1.4))
         layers.append(spr(ctx, b, BONE, bevel=1))
+    else:
+        meat = poly(ctx, [(1.4, 6.0), (4.0, 3.0), (9.0, 2.4), (13.6, 3.6), (14.8, 7.4), (13.4, 12.0), (9.0, 13.8),
+                          (4.0, 13.6), (1.6, 11.0)])
+        eye = poly(ctx, [(2.6, 7.6), (5.0, 6.0), (10.0, 5.6), (13.4, 7.0), (13.0, 10.8), (9.0, 12.8), (4.4, 12.6),
+                         (2.6, 10.6)])
+    tm = spr(ctx, meat, p, bevel=2.5, sss=0.15)
+    ring = ctx.edge(meat, 1) > 0
+    paint(tm, (minus(meat, eye) > 0.5) & ~ring, rim)                       # fat rim / cap
+    paint(tm, (ctx.edge(eye, 1, "tl") > 0) & (meat > 0.5) & ~ring, p[-1])  # moist highlight on the cut
+    if marbling is not None:
+        pts = [(5, 7), (7, 9), (5, 10), (8, 7)] if bone else [(5, 8), (8, 7), (10, 9), (6, 10), (11, 7)]
+        paint(tm, (dots(ctx, pts, 0.45) > 0.5) & (eye > 0.5) & ~ring, marbling)
+    if not bone:  # small round bone eye in the corner of the pork chop
+        paint(tm, circ(ctx, 11.6, 9.6, 1.1) > 0.5, BONE[2])
+        paint(tm, cells(ctx, [(11, 9)]) > 0.5, BONE[3])
     return compose(ctx, *layers, tm)
 
 
 register("item/mutton", lambda ctx: chop(ctx, pal("4e0c14", "8a1e24", "b8383a", "d65a56", "ee8a80"),
                                          rgb("f0dcd0"), True, rgb("e8b0a8")))
-register("item/porkchop", lambda ctx: chop(ctx, pal("6a2a2e", "b25a5c", "e08a88", "f2aaa6", "ffd0cc"),
-                                           rgb("fbeee6"), False))
+register("item/porkchop", lambda ctx: chop(ctx, pal("5e1e26", "9e4048", "c8646a", "e08888", "f4aca8"),
+                                           rgb("fbeee6"), False, rgb("f8c8c4")))
 
 
 @texture("item/rabbit")
 def rabbit(ctx):
-    p = pal("5a1e1e", "a04a44", "d0786c", "e89c8e", "f8c4b8")
+    p = pal("4e1418", "903a3c", "c06060", "dc8682", "f2b0a8")
     m = U(ell(ctx, 7.0, 7.6, 5.2, 3.8, -0.6), ell(ctx, 10.4, 11.0, 3.4, 2.4, -0.9))
     t = spr(ctx, m, p, bevel=2.5, sss=0.15)
     ring = ctx.edge(m, 1) > 0
@@ -52,17 +64,17 @@ def rabbit(ctx):
 
 
 def fish(ctx, body_p, belly, fin_p=None, stripes=None):
-    body = U(ell(ctx, 7.4, 8.4, 6.0, 3.8), poly(ctx, [(11.0, 7.0), (14.0, 4.6), (15.0, 5.0), (13.4, 8.4),
-                                                       (15.0, 11.8), (14.0, 12.2), (11.0, 9.8)]))
+    body = U(ell(ctx, 7.0, 8.4, 6.0, 4.4), poly(ctx, [(11.0, 7.0), (14.2, 3.8), (15.4, 4.4), (13.6, 8.4),
+                                                       (15.4, 12.4), (14.2, 13.0), (11.0, 9.8)]))
     t = spr(ctx, body, body_p, bevel=2.0, smooth=0.5)
     ring = ctx.edge(body, 1) > 0
-    paint(t, (inter(ell(ctx, 7.0, 10.4, 4.6, 1.6), body) > 0.5) & ~ring, belly)
+    paint(t, (inter(ell(ctx, 6.6, 11.0, 4.6, 1.8), body) > 0.5) & ~ring, belly)
     if stripes is not None:
         for x in (6.4, 9.6):
             paint(t, (box(ctx, x, 0, x + 1.2, 16) > 0.5) & (body > 0.5) & ~ring, stripes)
     paint(t, dots(ctx, [(3, 7)], 0.6), rgb("101010"))
     paint(t, (line(ctx, [(5.0, 6.6), (5.6, 10.0)], 0.6) > 0.5) & ~ring, body_p[1])
-    fin = spr(ctx, poly(ctx, [(6.0, 5.4), (9.0, 3.8), (10.0, 5.6)]), fin_p if fin_p is not None else body_p, bevel=1)
+    fin = spr(ctx, poly(ctx, [(5.0, 4.8), (8.6, 2.6), (10.0, 5.2)]), fin_p if fin_p is not None else body_p, bevel=1)
     return compose(ctx, fin, t)
 
 

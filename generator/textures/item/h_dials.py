@@ -4,7 +4,7 @@ import math
 import numpy as np
 
 from ...registry import register
-from .h_lib import (cells, compose, ellipse, metal, paint, pal, ramp, rgb, ring, rows_mask, seg, spr, union, IRON)
+from .h_lib import (U, box, cells, compose, ellipse, metal, paint, pal, ramp, rgb, ring, rows_mask, seg, spr, union, IRON)
 from ...sprites import flat
 
 # ------------------------------------------------------------ recovery compass
@@ -61,35 +61,45 @@ def digits_mask(ctx, text, x0, y0):
 
 
 def light(ctx, level):
+    """Glowing light bulb (brightness grows with the level) plus the level number."""
     f = level / 15
-    # glowing orb inside a dashed outline cube (the light block itself is invisible)
-    dash = cells(ctx, [(x, 1) for x in range(1, 15, 2)] + [(x, 14) for x in range(2, 15, 2)] +
-                 [(1, y) for y in range(2, 15, 2)] + [(14, y) for y in range(1, 14, 2)])
-    dt = flat(ctx, dash, rgb("d8d4b0") * (0.55 + 0.45 * f))
     core = mix_pal(f)
-    r = 1.9 + 1.3 * f
-    orb = ellipse(ctx, 8, 5.4, r, r)
-    ot = spr(ctx, orb, core, smooth=0.6, bevel=2, emissive=0.15 + 0.85 * f, outline=level > 0)
+    cx, cy, r = 6.6, 5.8, 4.4
+    k = ctx.w / 16
+    # halo rays for bright levels
     rays = ctx.zeros()
-    nr = min(8, (level + 1) // 2)
-    for j in range(nr):
-        a = j / 8 * 2 * math.pi
-        rays = np.maximum(rays, seg(ctx, 8 + math.cos(a) * (r + 0.8), 5.4 + math.sin(a) * (r + 0.8),
-                                    8 + math.cos(a) * (r + 1.6), 5.4 + math.sin(a) * (r + 1.6), 0.9))
+    for j in range(min(8, (level + 1) // 2)):
+        a = math.pi + j / 8 * 2 * math.pi
+        rays = np.maximum(rays, seg(ctx, cx + math.cos(a) * (r + 0.7), cy + math.sin(a) * (r + 0.7),
+                                    cx + math.cos(a) * (r + 1.5), cy + math.sin(a) * (r + 1.5), 0.9))
+    rays = rays * (1 - box(ctx, 9.0, 9.0, 16, 16))
     rt = flat(ctx, rays, core[-2], emissive=f)
+    bulb = U(ellipse(ctx, cx, cy, r, r), box(ctx, cx - 2.0, cy + 2.0, cx + 2.0, cy + 5.0))
+    glass = pal("3a3a40", "6a6a72")
+    t = spr(ctx, bulb, np.concatenate([glass[:1], core]), smooth=0.9, bevel=3, emissive=0.1 + 0.9 * f)
+    ring = ctx.edge(bulb, 1) > 0
+    inner = (bulb > 0.5) & ~ring
+    # filament (visible when dim), highlight
+    fil = U(seg(ctx, cx - 1.4, cy + 1.6, cx - 1.0, cy - 0.6, 0.6), seg(ctx, cx + 1.4, cy + 1.6, cx + 1.0, cy - 0.6, 0.6),
+            seg(ctx, cx - 1.0, cy - 0.6, cx + 1.0, cy - 0.6, 0.6))
+    paint(t, (fil > 0.5) & inner, mix_pal(1.0)[3] if level else rgb("8a6a4a"), emissive=0.4 + 0.6 * f)
+    paint(t, (cells(ctx, [(4, 3), (3, 4), (4, 4)]) > 0.5) & inner, rgb("ffffff") * (0.75 + 0.25 * f))
+    base_m = box(ctx, cx - 2.0, cy + 5.0, cx + 2.0, cy + 8.0)
+    tb = metal(ctx, base_m, pal("3a3a40", "6e6e76", "9a9aa2", "c4c4cc"), IRON, bevel=1)
+    paint(tb, box(ctx, 0, cy + 6.0, 16, cy + 7.0), rgb("4e4e56"))
     txt = str(level)
     w = 4 * len(txt) - 1
-    dm = digits_mask(ctx, txt, (16 - w) // 2, 9 + (0 if level < 10 else 0))
+    dm = digits_mask(ctx, txt, 16 - w - (0 if level >= 10 else 1), 10)
     g = dm > 0.5
-    s1 = ctx.s * int(ctx.w / 16)
+    s1 = ctx.s * int(k)
     shadow = np.zeros_like(g)
     for oy in (-s1, 0, s1):
         for ox in (-s1, 0, s1):
             shadow |= np.roll(np.roll(g, oy, 0), ox, 1)
     shadow &= ~g
-    sh = flat(ctx, shadow, rgb("2a2418"))
-    dg = flat(ctx, dm, rgb("fff6d0") if level else rgb("9a968a"), emissive=0.5 * f)
-    return compose(ctx, dt, rt, ot, sh, dg)
+    sh = flat(ctx, shadow, rgb("1e1a12"))
+    dg = flat(ctx, dm, rgb("fff6d0") if level else rgb("b0aca0"), emissive=0.3 + 0.5 * f)
+    return compose(ctx, rt, t, tb, sh, dg)
 
 
 def mix_pal(f):

@@ -76,22 +76,27 @@ BROKEN = pal("2a2730", "45404f", "5f5a6b", "7c7688", "9893a4")
 
 
 def elytra(ctx, broken=False):
+    """Folded wings side by side: two long leathery wings joined at the shoulders,
+    each with bony ribs fanning down from the shoulder and a scalloped trailing edge."""
     p = BROKEN if broken else MEMBRANE
-    wing = [(7.6, 1.0), (3.6, 1.2), (1.2, 3.4), (0.8, 8.0), (1.8, 12.6), (3.4, 15.4), (5.0, 14.0), (6.0, 9.6), (7.6, 5.0)]
+    wing = [(7.6, 1.0), (3.0, 0.8), (0.8, 2.6), (0.8, 6.6), (1.4, 11.2), (3.0, 15.4), (4.0, 13.0), (4.8, 13.6),
+            (5.4, 9.8), (6.4, 7.0), (7.6, 4.4)]
     left = poly(ctx, wing)
     right = poly(ctx, [(16 - x, y) for x, y in wing])
     m = U(left, right)
     if broken:
-        holes = U(circ(ctx, 3.6, 8.0, 1.0), circ(ctx, 11.6, 11.0, 1.2), poly(ctx, [(1, 12), (3.4, 13), (1, 15)]),
-                  poly(ctx, [(15.2, 6), (13.6, 7.2), (15.2, 8.6)]))
+        holes = U(circ(ctx, 3.6, 8.4, 1.1), circ(ctx, 11.8, 11.2, 1.2), poly(ctx, [(0.6, 11.0), (3.0, 12.4), (0.6, 14.6)]),
+                  poly(ctx, [(15.4, 5.6), (13.6, 7.0), (15.4, 8.6)]))
         m = minus(m, holes)
     t = spr(ctx, m, p, smooth=0.3, sss=0.15)
     ring = ctx.edge(m, 1) > 0
-    for x0, y0, x1, y1 in ((6.6, 2.4, 2.6, 6.4), (6.2, 5.4, 2.4, 10.6), (5.6, 8.6, 3.0, 13.6)):
-        paint(t, line(ctx, [(x0, y0), (x1, y1)], 0.7) * (~ring), p[1])
-        paint(t, line(ctx, [(16 - x0, y0), (16 - x1, y1)], 0.7) * (~ring), p[1])
-    paint(t, line(ctx, [(5.0, 2.6), (2.8, 4.6)], 0.7) * (~ring), p[4])
-    paint(t, line(ctx, [(11.0, 2.6), (13.2, 4.6)], 0.7) * (~ring), p[3])
+    shoulders = U(box(ctx, 1.6, 1.0, 7.4, 2.8), box(ctx, 8.6, 1.0, 14.4, 2.8))
+    paint(t, shoulders * (~ring), p[3])
+    for x1, y1 in ((1.4, 6.6), (2.4, 11.4), (4.4, 11.4)):
+        paint(t, line(ctx, [(6.0, 2.6), (x1, y1)], 0.7) * (~ring), p[1])
+        paint(t, line(ctx, [(10.0, 2.6), (16 - x1, y1)], 0.7) * (~ring), p[1])
+    paint(t, line(ctx, [(5.6, 1.8), (2.4, 3.2)], 0.7) * (~ring), p[4])
+    paint(t, line(ctx, [(10.4, 1.8), (13.6, 3.2)], 0.7) * (~ring), p[4])
     return t
 
 

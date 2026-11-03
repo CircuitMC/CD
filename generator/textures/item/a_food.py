@@ -91,13 +91,17 @@ register("item/golden_carrot", lambda ctx: carrot(ctx, True))
 
 @texture("item/chorus_fruit")
 def chorus_fruit(ctx):
-    m = U(circ(ctx, 6.4, 8.4, 3.6), circ(ctx, 10.0, 7.2, 3.2), circ(ctx, 8.6, 11.0, 3.6), circ(ctx, 5.4, 11.8, 2.4),
-          circ(ctx, 11.0, 11.2, 2.4))
+    """Knobbly purple fruit: a round body covered in raised bumps, with a stalk."""
+    lobes = [(8.0, 9.2, 5.0), (5.0, 6.6, 2.6), (11.2, 6.4, 2.6), (4.4, 11.6, 2.5), (11.6, 11.8, 2.5),
+             (8.0, 4.8, 2.4), (8.0, 13.4, 2.4)]
+    m = U(*[circ(ctx, x, y, r) for x, y, r in lobes])
     t = spr(ctx, m, CHORUS, bevel=2.5, sss=0.2)
     ring = ctx.edge(m, 1) > 0
-    paint(t, dots(ctx, [(5, 7), (9, 5), (8, 10), (11, 10), (5, 12)]) * (~ring), CHORUS[4])
-    paint(t, dots(ctx, [(7, 9), (10, 8), (9, 12)]) * (~ring), CHORUS[1])
-    return t
+    for x, y, r in lobes:  # each bump: lit top-left, shaded bottom-right
+        paint(t, dots(ctx, [(x - r * 0.45 - 0.5, y - r * 0.45 - 0.5)], 0.55) * (~ring), CHORUS[4])
+        paint(t, dots(ctx, [(x + r * 0.35 - 0.5, y + r * 0.4 - 0.5)], 0.5) * (~ring), CHORUS[1])
+    stalk = spr(ctx, U(line(ctx, [(8.4, 3.0), (9.6, 0.8)], 1.1)), pal("2a1438", "5a3a6a", "8a6a9a"), bevel=1)
+    return compose(ctx, stalk, t)
 
 
 @texture("item/glistering_melon_slice")
@@ -178,24 +182,30 @@ def beetroot_seeds(ctx):
 
 @texture("item/cocoa_beans")
 def cocoa_beans(ctx):
+    """Three plump oval beans, each split by a lengthwise crease."""
     layers = []
-    for x, y, a in ((5.6, 6.0, 0.6), (10.6, 7.0, -0.5), (7.4, 11.4, 0.1)):
-        b = ell(ctx, x, y, 3.0, 2.0, a)
-        t = spr(ctx, b, COCOA, bevel=1.5)
-        c, s = np.cos(a), np.sin(a)
-        paint(t, line(ctx, [(x - 1.8 * c, y - 1.8 * s), (x + 1.8 * c, y + 1.8 * s)], 0.6), COCOA[1])
+    for x, y, a in ((5.4, 5.6, 0.7), (11.0, 7.0, -0.5), (7.4, 11.6, 0.15)):
+        b = ell(ctx, x, y, 3.4, 2.3, a)
+        t = spr(ctx, b, COCOA, bevel=1.5, smooth=0.3)
+        ring = ctx.edge(b, 1) > 0
+        c, s_ = np.cos(a), np.sin(a)
+        paint(t, line(ctx, [(x - 2.2 * c, y - 2.2 * s_), (x + 2.2 * c, y + 2.2 * s_)], 0.7) * (~ring), COCOA[0])
+        paint(t, dots(ctx, [(x - 1.6 * c + 1.0 * s_ - 0.5, y - 1.6 * s_ - 1.0 * c - 0.5)], 0.5) * (~ring), COCOA[4])
         layers.append(t)
     return compose(ctx, *layers)
 
 
 @texture("item/dried_kelp")
 def dried_kelp(ctx):
-    m = poly(ctx, [(2.0, 13.0), (3.4, 9.0), (3.0, 5.6), (6.0, 3.0), (10.0, 2.0), (13.6, 2.6), (12.6, 5.0),
-                   (13.8, 8.6), (11.0, 11.6), (8.0, 12.4), (5.0, 14.6)])
+    """A dried, crinkled kelp leaf: dark olive blade with a midrib and wrinkles."""
+    m = poly(ctx, [(2.4, 14.0), (2.6, 10.0), (4.0, 6.6), (7.0, 3.6), (11.0, 1.8), (14.2, 1.8), (13.6, 5.0),
+                   (11.6, 9.0), (8.6, 12.0), (5.0, 13.6)])
     t = spr(ctx, m, KELP, bevel=1.5, porosity=0.3)
     ring = ctx.edge(m, 1) > 0
-    paint(t, line(ctx, [(4.0, 12.0), (5.4, 9.6), (5.6, 7.0), (8.6, 4.2)], 0.6) * (~ring), KELP[4])
-    paint(t, dots(ctx, [(9, 8), (6, 11)]) * (~ring), KELP[1])
+    paint(t, line(ctx, [(3.0, 13.4), (6.6, 8.6), (13.4, 2.4)], 0.7) * (~ring), KELP[4])
+    for (x0, y0), (x1, y1) in (((5.0, 10.6), (3.6, 9.6)), ((7.6, 7.6), (6.4, 5.4)), ((10.0, 5.4), (9.0, 3.4)),
+                               ((6.6, 10.2), (8.4, 11.0)), ((9.2, 7.6), (11.2, 8.0)), ((11.6, 4.6), (13.2, 4.6))):
+        paint(t, line(ctx, [(x0, y0), (x1, y1)], 0.6) * (~ring), KELP[1])
     return t
 
 
@@ -246,29 +256,25 @@ register("item/chicken", lambda ctx: drumstick(ctx, CHICKEN_RAW))
 register("item/cooked_chicken", lambda ctx: drumstick(ctx, CHICKEN_COOKED, True))
 
 
-def chop(ctx, p, rim, bone=True, cooked=True):
-    """Rib chop (mutton / porkchop): rounded meat with a fat rim and a rib bone."""
-    meat = poly(ctx, [(2.0, 9.0), (3.0, 4.6), (6.6, 2.4), (10.6, 3.0), (12.4, 6.0), (11.6, 10.0), (8.4, 13.0),
-                      (4.4, 13.4)])
-    tm = spr(ctx, meat, p, bevel=2.5)
-    ring = ctx.edge(meat, 1) > 0
-    inner = poly(ctx, [(3.4, 8.8), (4.2, 5.4), (7.0, 3.8), (10.0, 4.4), (10.8, 6.6), (10.2, 9.4), (7.8, 11.6),
-                       (4.8, 12.0)])
-    paint(tm, minus(meat, inner) * (~ring), rim)
-    if cooked:
-        paint(tm, line(ctx, [(5.0, 10.0), (8.6, 5.4)], 0.8) * (~ring), p[1])
-        paint(tm, line(ctx, [(7.0, 10.6), (9.8, 7.2)], 0.8) * (~ring), p[1])
-    layers = []
-    if bone:
-        b = U(line(ctx, [(10.6, 8.4), (14.0, 12.4)], 1.8), circ(ctx, 14.2, 13.2, 1.3))
-        layers.append(spr(ctx, b, BONE, bevel=1))
-    return compose(ctx, *layers, tm)
+def sear(ctx, t, lines, rgb):
+    """Grill marks over the opaque interior of a food sprite."""
+    m = t.alpha > 0.5
+    ring = ctx.edge(m.astype(np.float32), 1) > 0
+    for a, b in lines:
+        paint(t, (line(ctx, [a, b], 0.9) > 0.5) & ~ring, rgb)
+    return t
 
 
-register("item/cooked_mutton", lambda ctx: chop(ctx, pal("3a1a0c", "6a3418", "8e4c26", "b06a38", "cc8a50"),
-                                                pal("c89a6a")[0]))
-register("item/cooked_porkchop", lambda ctx: chop(ctx, pal("4a2410", "7e4422", "aa6436", "cc8650", "e8aa70"),
-                                                  pal("e6c08a")[0], bone=False))
+def cooked_chop(ctx, p, rim, bone):
+    from . import h_food as HF  # same silhouette as raw mutton / porkchop
+    t = HF.chop(ctx, p, rim, bone)
+    return sear(ctx, t, [((4.4, 10.6), (8.0, 5.0)), ((6.8, 11.6), (10.2, 6.6))], p[0])
+
+
+register("item/cooked_mutton", lambda ctx: cooked_chop(ctx, pal("3a1a0c", "6a3418", "8e4c26", "b06a38", "cc8a50"),
+                                                       pal("d8b080")[0], True))
+register("item/cooked_porkchop", lambda ctx: cooked_chop(ctx, pal("4a2410", "7e4422", "aa6436", "cc8650", "e8aa70"),
+                                                         pal("eccc94")[0], False))
 
 
 @texture("item/cooked_rabbit")
@@ -287,24 +293,17 @@ def cooked_rabbit(ctx):
 # ----------------------------------------------------------------- fish
 
 def fish(ctx, body_p, belly, cooked=False, fin_p=None):
-    body = U(ell(ctx, 7.4, 8.4, 6.0, 3.8), poly(ctx, [(11.0, 7.0), (14.0, 4.6), (15.0, 5.0), (13.4, 8.4),
-                                                       (15.0, 11.8), (14.0, 12.2), (11.0, 9.8)]))
-    t = spr(ctx, body, body_p, bevel=2.0, smooth=0.5)
-    ring = ctx.edge(body, 1) > 0
-    paint(t, inter(ell(ctx, 7.0, 10.4, 4.6, 1.6), body) * (~ring), belly)
-    paint(t, dots(ctx, [(3, 7)], 0.6), pal("101010")[0])
-    paint(t, line(ctx, [(5.0, 6.6), (5.6, 10.0)], 0.6) * (~ring), body_p[1])
-    fin = spr(ctx, poly(ctx, [(6.0, 5.4), (9.0, 3.8), (10.0, 5.6)]), fin_p if fin_p is not None else body_p, bevel=1)
+    from . import h_food as HF  # same fish silhouette as raw salmon / tropical fish
+    t = HF.fish(ctx, body_p, belly, fin_p)
     if cooked:
-        for i in range(3):
-            if i != 1:
-                paint(t, line(ctx, [(4.4 + i * 2.6, 10.6), (6.6 + i * 2.6, 6.4)], 0.7) * (~ring), body_p[1])
-    return compose(ctx, fin, t)
+        sear(ctx, t, [((5.0, 10.6), (7.0, 6.4)), ((8.6, 10.8), (10.4, 6.6))], body_p[1])
+    return t
 
 
-register("item/cod", lambda ctx: fish(ctx, pal("3e3424", "6e6046", "9a8a68", "bcae8a", "dcd0b0"), pal("e8dcc0")[0]))
+register("item/cod", lambda ctx: fish(ctx, pal("3e3424", "6e6046", "9a8a68", "bcae8a", "dcd0b0"), pal("e8dcc0")[0],
+                                      fin_p=pal("2e281c", "5a4e38", "7e7058")))
 register("item/cooked_cod", lambda ctx: fish(ctx, pal("3e2410", "7a4e26", "a8743e", "c89a5e", "e6c288"),
-                                              pal("f0d8a8")[0], True))
+                                              pal("f0d8a8")[0], True, pal("2e1c0c", "5a3a1c", "7e5228")))
 register("item/cooked_salmon", lambda ctx: fish(ctx, pal("4a1c0c", "8a3a1c", "bc5a2e", "dc7e48", "f2a46c"),
                                                  pal("f4c090")[0], True, pal("2e1c14", "5a3a2a", "7a5440")))
 

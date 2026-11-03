@@ -372,10 +372,13 @@ register("item/stick", lambda ctx: rod(ctx, [(3.4, 13.0), (13.0, 3.4)], 1.6, WOO
 
 @texture("item/string")
 def string(ctx):
-    pts = [(3.0, 13.0), (5.0, 9.6), (4.0, 7.0), (6.6, 4.6), (9.6, 5.6), (11.0, 3.0), (13.0, 2.4)]
-    pts2 = [(6.6, 13.4), (9.0, 11.0), (8.0, 8.6), (10.6, 7.6), (12.6, 9.0)]
-    m = U(stroke(ctx, pts, 1.0), stroke(ctx, pts2, 1.0))
-    return spr(ctx, m, STRING, outline=False, bevel=1, smooth=0.2)
+    """A small hank of string: looped coil with a loose tail."""
+    loops = U(stroke(ctx, arc_pts(8.0, 7.6, 4.6, 0, 360, 28), 1.1), stroke(ctx, arc_pts(8.4, 8.2, 3.2, 20, 380, 22), 1.0),
+              stroke(ctx, arc_pts(7.6, 7.0, 3.8, 200, 520, 24), 0.9))
+    tail = stroke(ctx, [(10.6, 11.4), (12.0, 13.0), (11.0, 14.4), (12.6, 15.2)], 1.0)
+    t = spr(ctx, U(loops, tail), STRING, outline=False, bevel=1, smooth=0.2)
+    paint(t, ctx.edge(U(loops, tail), 1, "br") > 0, STRING[0])
+    return t
 
 
 @texture("item/turtle_scute")

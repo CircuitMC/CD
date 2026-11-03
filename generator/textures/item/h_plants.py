@@ -60,10 +60,17 @@ def kelp(ctx):
 
 @texture("item/seagrass")
 def seagrass(ctx):
+    """Tuft of ribbon-like blades (filled, tapering) rising from a small root clump."""
     p = pal("143a14", "246024", "3a8a30", "5aae44", "86d066")
-    m = U(curve(ctx, (5.0, 15.0), (3.4, 9.0), (5.0, 3.0), 1.4, 0.6), curve(ctx, (8.0, 15.0), (9.6, 8.0), (7.6, 1.4), 1.6, 0.6),
-          curve(ctx, (11.0, 15.0), (12.6, 10.0), (11.0, 5.0), 1.4, 0.6))
-    return spr(ctx, m, p, outline=False, bevel=1, sss=0.4)
+    blades = U(curve(ctx, (6.0, 14.6), (2.6, 9.0), (4.4, 2.6), 2.4, 1.0),
+               curve(ctx, (8.0, 14.6), (9.8, 8.0), (7.6, 1.0), 2.6, 1.0),
+               curve(ctx, (10.0, 14.6), (13.4, 10.0), (12.0, 4.0), 2.4, 1.0))
+    t = spr(ctx, blades, p, bevel=1.2, sss=0.4)
+    ring = ctx.edge(blades, 1) > 0
+    vein = U(curve(ctx, (6.0, 14.0), (3.4, 9.0), (4.6, 3.6), 0.5), curve(ctx, (8.0, 14.0), (9.2, 8.0), (7.8, 2.4), 0.5),
+             curve(ctx, (10.0, 14.0), (12.6, 10.0), (11.8, 5.0), 0.5))
+    paint(t, (vein > 0.5) & ~ring, p[3])
+    return t
 
 
 @texture("item/sugar_cane")
@@ -83,11 +90,16 @@ def sugar_cane(ctx):
 
 @texture("item/nether_sprouts")
 def nether_sprouts(ctx):
+    """Clump of short teal sprouts with curled tips on a little root mat."""
     p = pal("0e3a34", "1a5e54", "2a8a78", "46b49c", "7adcc4")
-    m = U(line(ctx, [(4.0, 14.0), (3.0, 8.0)], 1.0), line(ctx, [(7.0, 14.0), (7.6, 6.0)], 1.0),
-          line(ctx, [(10.0, 14.0), (12.0, 7.6)], 1.0), line(ctx, [(12.6, 14.0), (13.6, 11.0)], 1.0),
-          line(ctx, [(5.6, 14.0), (5.0, 11.0)], 1.0))
-    return spr(ctx, m, p, outline=False, bevel=1)
+    stems = U(curve(ctx, (4.0, 14.0), (2.6, 10.0), (3.6, 6.6), 1.6, 1.0), curve(ctx, (7.0, 14.0), (6.4, 9.0), (7.6, 4.0), 1.8, 1.0),
+              curve(ctx, (10.0, 14.0), (11.6, 10.0), (11.0, 5.6), 1.8, 1.0), curve(ctx, (12.6, 14.0), (14.0, 12.0), (13.6, 9.0), 1.4, 0.9))
+    tips = U(circ(ctx, 3.8, 6.4, 1.3), circ(ctx, 7.8, 3.8, 1.4), circ(ctx, 11.0, 5.4, 1.3), circ(ctx, 13.6, 8.8, 1.1))
+    base = ell(ctx, 8.0, 14.0, 6.4, 1.4)
+    t = spr(ctx, U(stems, tips, base), p, bevel=1)
+    paint(t, (cells(ctx, [(3, 6), (7, 3), (10, 5), (13, 8)]) > 0.5), p[4])
+    paint(t, (base > 0.5) & ~(ctx.edge(base, 1) > 0), p[1])
+    return t
 
 
 @texture("item/nether_wart")
